@@ -6,13 +6,13 @@
   <title>Qalbe Kazmi | ServiceNow Administrator</title>
   <meta
     name="description"
-    content="Qalbe Kazmi - ServiceNow Administrator and Microsoft Systems Administrator specializing in ITSM, CMDB, Discovery, MID Server, hybrid identity, Microsoft 365, IAM, and enterprise automation."
+    content="Qalbe Kazmi is a ServiceNow Administrator specializing in ITSM, Employee Center, CMDB, Discovery, MID Server, workflow automation, and hybrid enterprise systems."
   />
   <style>
     :root {
       --bg: #07111f;
-      --bg-soft: #0b1728;
-      --card: rgba(17, 24, 39, 0.78);
+      --bg-2: #0b1728;
+      --card: rgba(17, 24, 39, 0.82);
       --border: rgba(148, 163, 184, 0.16);
       --text: #e5e7eb;
       --muted: #94a3b8;
@@ -35,9 +35,9 @@
     body {
       font-family: Arial, sans-serif;
       background:
-        radial-gradient(circle at top left, rgba(59, 130, 246, 0.15), transparent 32%),
-        radial-gradient(circle at top right, rgba(34, 197, 94, 0.08), transparent 20%),
-        linear-gradient(180deg, #07111f 0%, #0b1120 45%, #08101c 100%);
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 34%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.07), transparent 20%),
+        linear-gradient(180deg, #07111f 0%, #0b1120 42%, #08101c 100%);
       color: var(--text);
       line-height: 1.65;
       overflow-x: hidden;
@@ -76,7 +76,7 @@
       top: 0;
       z-index: 1000;
       border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-      background: rgba(7, 17, 31, 0.78);
+      background: rgba(7, 17, 31, 0.82);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
@@ -117,12 +117,11 @@
 
     .hero {
       padding: 84px 0 46px;
-      position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 34px;
       align-items: center;
     }
@@ -148,7 +147,7 @@
     }
 
     .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
       line-height: 1.05;
       color: var(--heading);
       margin-bottom: 16px;
@@ -266,7 +265,7 @@
     }
 
     .mini-tags,
-    .skill-list {
+    .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -330,6 +329,10 @@
       margin-bottom: 14px;
     }
 
+    .card p {
+      color: #d1d5db;
+    }
+
     .card ul {
       padding-left: 20px;
     }
@@ -340,9 +343,9 @@
     }
 
     .about-grid,
+    .skills-grid,
     .focus-grid,
-    .project-grid,
-    .skills-grid {
+    .project-grid {
       display: grid;
       gap: 18px;
     }
@@ -351,15 +354,15 @@
       grid-template-columns: 1.15fr 0.85fr;
     }
 
+    .skills-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
     .focus-grid {
       grid-template-columns: 1fr 1fr;
     }
 
     .project-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .skills-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
@@ -450,9 +453,9 @@
     @media (max-width: 980px) {
       .hero-grid,
       .about-grid,
+      .skills-grid,
       .focus-grid,
-      .project-grid,
-      .skills-grid {
+      .project-grid {
         grid-template-columns: 1fr;
       }
 
@@ -516,21 +519,20 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="reveal">
-          <div class="eyebrow">ServiceNow • Hybrid Systems • Automation</div>
-          <h1>ServiceNow Administrator & Hybrid Systems Engineer</h1>
-          <div class="hero-subtitle">ITSM • CMDB • Discovery • Identity & Automation</div>
+          <div class="eyebrow">ServiceNow First • Enterprise IT • Automation</div>
+          <h1>ServiceNow Administrator Focused on ITSM, Employee Center, CMDB & Discovery</h1>
+          <div class="hero-subtitle">ServiceNow Implementation • Workflow Automation • Hybrid Systems Support</div>
 
           <p>
-            ServiceNow Certified System Administrator with hands-on experience implementing
-            ITSM workflows, CMDB, and Discovery in hybrid enterprise environments.
-            Experienced in integrating ServiceNow with Microsoft 365, Entra ID, and Active Directory
-            to automate identity lifecycle and service operations.
+            I am a ServiceNow Certified System Administrator focused on building and supporting
+            practical ServiceNow solutions across ITSM, Employee Center, Employee Center Pro,
+            Service Catalog, CMDB, Discovery, and workflow automation.
           </p>
 
           <p>
-            I specialize in bridging infrastructure and ServiceNow by building practical solutions involving
-            MID Server deployment, SSO integrations, workflow automation, and system integrations across
-            on-prem and cloud platforms.
+            My background also includes Microsoft 365, Entra ID, Active Directory, Exchange Online,
+            and hybrid infrastructure operations, which helps me connect ServiceNow with real-world
+            identity, access, and service delivery processes.
           </p>
 
           <div class="cta-row">
@@ -550,9 +552,9 @@
           <div class="location">Brooklyn, New York</div>
           <div class="mini-tags">
             <span>ServiceNow</span>
-            <span>IT Operations</span>
-            <span>Microsoft 365</span>
-            <span>Identity</span>
+            <span>ITSM</span>
+            <span>Employee Center</span>
+            <span>Hybrid Systems</span>
           </div>
         </div>
       </div>
@@ -564,7 +566,7 @@
           <div>
             <h2 class="section-title">About Me</h2>
             <p class="section-copy">
-              ServiceNow administration, Microsoft infrastructure, identity operations, and enterprise systems integration.
+              ServiceNow administration is my primary focus, supported by real-world Microsoft and hybrid systems experience.
             </p>
           </div>
         </div>
@@ -572,39 +574,39 @@
         <div class="about-grid">
           <div class="card glass reveal">
             <p>
-              My background combines ServiceNow platform administration, Microsoft infrastructure,
-              identity and access operations, and enterprise system integration. I have worked across
-              environments involving Active Directory, Entra ID, endpoint management, IT service operations,
-              email systems, and operational governance.
+              My work centers on ServiceNow administration, implementation, and workflow design.
+              I have been involved in building ServiceNow solutions for service intake, task routing,
+              Employee Center experiences, service catalog workflows, CMDB population, and operational process improvement.
             </p>
             <br />
             <p>
-              I have implemented ServiceNow capabilities including ITSM workflows, MID Server configuration,
-              Discovery, and CMDB population, while also supporting Microsoft 365 administration, orphaned
-              ownership recovery, mail flow troubleshooting, device security controls, and cross-tenant access strategy.
+              I have also supported ServiceNow integration work involving SAML SSO, SCIM provisioning,
+              MID Server setup, Discovery, and identity-connected automation. My Microsoft background in
+              Entra ID, Active Directory, Exchange Online, and Microsoft 365 strengthens my ability to
+              support hybrid enterprise environments where ServiceNow needs to connect to real infrastructure.
             </p>
             <br />
             <p>
-              I am focused on growing within ServiceNow platform engineering, IT operations, and automation,
-              with an emphasis on scalable, secure, and well-integrated enterprise solutions.
+              I am focused on growing deeper into ServiceNow platform administration and implementation,
+              while bringing additional value through hybrid systems, identity operations, and enterprise automation.
             </p>
           </div>
 
           <div class="card glass reveal">
-            <h3>Core Focus Areas</h3>
-            <div class="skill-list">
-              <span class="tag">ServiceNow Administration</span>
-              <span class="tag">ITSM</span>
+            <h3>Primary Strengths</h3>
+            <div class="tag-list">
+              <span class="tag">ServiceNow ITSM</span>
+              <span class="tag">Employee Center</span>
+              <span class="tag">Employee Center Pro</span>
+              <span class="tag">Service Catalog</span>
+              <span class="tag">Flow Designer</span>
               <span class="tag">CMDB</span>
               <span class="tag">Discovery</span>
               <span class="tag">MID Server</span>
-              <span class="tag">Flow Designer</span>
-              <span class="tag">IAM Operations</span>
+              <span class="tag">SAML / SCIM</span>
               <span class="tag">Entra ID</span>
               <span class="tag">Active Directory</span>
               <span class="tag">Microsoft 365</span>
-              <span class="tag">REST APIs</span>
-              <span class="tag">Hybrid Infrastructure</span>
             </div>
           </div>
         </div>
@@ -617,21 +619,37 @@
           <div>
             <h2 class="section-title">Technical Skills</h2>
             <p class="section-copy">
-              Core technologies and operational areas across ServiceNow, Microsoft infrastructure, security, and automation.
+              ServiceNow is the core focus, with Microsoft and hybrid infrastructure experience supporting broader platform value.
             </p>
           </div>
         </div>
 
         <div class="skills-grid">
           <div class="card glass reveal">
-            <h3>ServiceNow</h3>
+            <h3>ServiceNow Platform</h3>
             <ul>
-              <li>ITSM (Incident, Problem, Change)</li>
-              <li>CMDB and Discovery</li>
-              <li>MID Server</li>
-              <li>Flow Designer</li>
+              <li>ITSM: Incident, Request, Knowledge, Change</li>
+              <li>Employee Center and Employee Center Pro</li>
               <li>Service Catalog and request workflows</li>
-              <li>User and role administration</li>
+              <li>Flow Designer and workflow automation</li>
+              <li>User, group, and role administration</li>
+              <li>CMDB and Discovery</li>
+              <li>MID Server configuration</li>
+              <li>Import Sets and Transform Maps</li>
+            </ul>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>ServiceNow Configuration & Delivery</h3>
+            <ul>
+              <li>UI Builder and portal experience</li>
+              <li>Catalog design and fulfillment logic</li>
+              <li>Knowledge structure and service intake design</li>
+              <li>Operational reporting and dashboards</li>
+              <li>SAML SSO and SCIM provisioning</li>
+              <li>REST API integrations</li>
+              <li>Testing, validation, and troubleshooting</li>
+              <li>ITIL-aligned service process improvement</li>
             </ul>
           </div>
 
@@ -643,31 +661,23 @@
               <li>On-Prem Active Directory</li>
               <li>Exchange Online</li>
               <li>Purview</li>
-              <li>SCIM and SAML-based provisioning</li>
+              <li>User provisioning and access control</li>
+              <li>ManageEngine ADManager Plus</li>
+              <li>Microsoft Graph and hybrid identity operations</li>
             </ul>
           </div>
 
           <div class="card glass reveal">
-            <h3>Infrastructure & Security</h3>
+            <h3>Infrastructure, Security & Operations</h3>
             <ul>
               <li>Atera (RMM)</li>
               <li>CrowdStrike Falcon</li>
               <li>Checkpoint Firewall</li>
               <li>Rubrik Backup & Recovery</li>
               <li>Nutanix</li>
-              <li>Endpoint monitoring and access control</li>
-            </ul>
-          </div>
-
-          <div class="card glass reveal">
-            <h3>Automation & Integration</h3>
-            <ul>
-              <li>REST APIs and Microsoft Graph</li>
-              <li>ManageEngine ADManager Plus</li>
               <li>SMTP relay and mail flow troubleshooting</li>
               <li>Cross-tenant access governance</li>
-              <li>Shared mailbox and calendar automation</li>
-              <li>Operational process improvement</li>
+              <li>Endpoint and access security operations</li>
             </ul>
           </div>
         </div>
@@ -680,7 +690,7 @@
           <div>
             <h2 class="section-title">Work Experience</h2>
             <p class="section-copy">
-              Experience across enterprise systems, ServiceNow implementation, workflow automation, IAM operations, and IT support.
+              ServiceNow-led work across implementation, workflow design, service delivery, and hybrid enterprise support.
             </p>
           </div>
         </div>
@@ -690,16 +700,15 @@
             <h3>Acacia Network</h3>
             <div class="muted">ServiceNow Administrator / Microsoft Systems Administrator</div>
             <ul>
-              <li>Administer hybrid identity environment integrating Active Directory and Entra ID (Azure AD), supporting user lifecycle and access control.</li>
-              <li>Manage Microsoft 365 services including Exchange Online and Purview, ensuring secure email operations and compliance.</li>
-              <li>Implemented SSO integrations using Entra ID to improve access management and reduce authentication issues.</li>
-              <li>Automated onboarding and offboarding using ADManager Plus, improving provisioning efficiency.</li>
-              <li>Led evaluation and implementation of ServiceNow as a replacement for InvGate, aligning the platform with ITSM requirements.</li>
-              <li>Configured SAML SSO and SCIM provisioning between Entra ID and ServiceNow.</li>
-              <li>Deployed and configured MID Server to enable secure communication between ServiceNow and internal systems.</li>
-              <li>Implemented ServiceNow Discovery to identify and classify assets, supporting CMDB population.</li>
+              <li>Led evaluation and implementation of ServiceNow as a replacement for InvGate, aligning the platform with organizational ITSM requirements.</li>
+              <li>Configured SAML SSO and SCIM provisioning between Entra ID and ServiceNow to support secure access and user synchronization.</li>
+              <li>Deployed and configured MID Server to enable communication between ServiceNow and internal systems.</li>
+              <li>Implemented ServiceNow Discovery to identify, classify, and populate configuration items into CMDB.</li>
+              <li>Developed and tested ITSM workflows including incident routing, request handling, and role-based access support.</li>
               <li>Integrated ServiceNow with Microsoft services using REST APIs and Microsoft Graph.</li>
-              <li>Troubleshot Discovery, CMDB, identity, and credential-related issues including classification failures.</li>
+              <li>Troubleshot Discovery, identity, credential, and CMDB-related issues, including classification failures and CI creation problems.</li>
+              <li>Supported hybrid identity and Microsoft 365 administration across Entra ID, Active Directory, Exchange Online, and Purview.</li>
+              <li>Automated onboarding and offboarding processes using ADManager Plus and identity-driven operational workflows.</li>
             </ul>
           </div>
         </div>
@@ -709,13 +718,14 @@
             <h3>Bical Cadillac</h3>
             <div class="muted">ServiceNow Administrator / Systems Implementation</div>
             <ul>
-              <li>Implemented ServiceNow workflows to digitize dealership operations and reduce manual processes.</li>
-              <li>Designed customer intake workflows across CRM migration, online inquiries, and walk-in channels.</li>
-              <li>Automated task routing across sales, finance, and DMV departments.</li>
-              <li>Built Service Catalog items and workflow automation using Flow Designer.</li>
-              <li>Integrated ServiceNow with Salesforce CRM for customer data synchronization.</li>
-              <li>Performed CMDB cleanup, data alignment, and process standardization.</li>
-              <li>Developed dashboards and reports to improve operational visibility.</li>
+              <li>Implemented ServiceNow workflows to digitize dealership operations and replace manual processes.</li>
+              <li>Designed and configured customer intake workflows across migrated CRM records, online inquiries, and walk-in channels.</li>
+              <li>Built task-routing logic across sales, sales management, DMV, and finance teams to support end-to-end operational flow.</li>
+              <li>Designed and implemented Employee Center and Employee Center Pro experiences to centralize service access.</li>
+              <li>Configured kiosk-style experience for deskless workers to improve access to services through simplified shared-device workflows.</li>
+              <li>Built service catalog items, request structures, and workflow automation using Flow Designer.</li>
+              <li>Integrated ServiceNow with Salesforce CRM for customer data synchronization and business process visibility.</li>
+              <li>Supported CMDB cleanup, data alignment, and reporting to improve service operations and platform usability.</li>
             </ul>
           </div>
         </div>
@@ -741,138 +751,176 @@
         <div class="section-heading reveal">
           <div>
             <h2 class="section-title">Featured Projects</h2>
-<p class="section-copy">
-  Real operational initiatives across identity governance, Microsoft 365, security, recovery, ServiceNow, and process automation.
-</p>
+            <p class="section-copy">
+              ServiceNow-focused implementation and administration work, supported by hybrid Microsoft and enterprise operations experience.
+            </p>
           </div>
         </div>
 
         <div class="project-grid">
           <div class="card glass project-card reveal">
+            <h3>Employee Center & Employee Center Pro Implementation</h3>
+            <ul>
+              <li>Designed and implemented ServiceNow Employee Center and Employee Center Pro to centralize IT and business service access.</li>
+              <li>Built role-based service experiences for corporate users and department-specific use cases.</li>
+              <li>Organized service categories, entry points, and content structures to improve request navigation and adoption.</li>
+              <li>Aligned self-service design with operational workflows and service delivery goals.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>Kiosk Experience for Deskless Workers</h3>
+            <ul>
+              <li>Designed kiosk-style access experience for workers without dedicated devices.</li>
+              <li>Configured simplified service submission flow for shared-terminal use cases.</li>
+              <li>Improved accessibility of HR and IT-related services for frontline and deskless users.</li>
+              <li>Reduced dependency on informal requests and manual supervisor-driven intake.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>ITSM Process Implementation & Workflow Automation</h3>
+            <ul>
+              <li>Implemented Incident, Request, and Knowledge workflows aligned with ITIL-based service operations.</li>
+              <li>Used Flow Designer to automate routing, approvals, task assignment, and request fulfillment logic.</li>
+              <li>Improved consistency in intake and handoff across business and operational teams.</li>
+              <li>Supported service delivery visibility through structured workflows and standardized request handling.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>Service Catalog & Request Design</h3>
+            <ul>
+              <li>Built service catalog items and organized request experiences around operational needs.</li>
+              <li>Improved intake quality by structuring requests around better service definitions and workflow paths.</li>
+              <li>Supported backend fulfillment through automation and role-based routing.</li>
+              <li>Reduced manual coordination by creating more repeatable service request flows.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>CMDB & Discovery Implementation</h3>
+            <ul>
+              <li>Configured Discovery and MID Server to identify assets and support CMDB population.</li>
+              <li>Worked through credential management, classification issues, and CI creation troubleshooting.</li>
+              <li>Improved visibility into infrastructure assets and foundational configuration data.</li>
+              <li>Aligned discovered records with appropriate CI usage and operational context.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>Identity & Access Automation via ServiceNow</h3>
+            <ul>
+              <li>Connected ServiceNow to Entra ID and Active Directory workflows to support identity lifecycle operations.</li>
+              <li>Enabled automation around provisioning, deprovisioning, and access-related request handling.</li>
+              <li>Used ServiceNow and Microsoft integration points to reduce manual identity administration.</li>
+              <li>Improved auditability and process control around access-related changes.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>ServiceNow + Microsoft 365 Integration</h3>
+            <ul>
+              <li>Integrated ServiceNow with Microsoft services using REST APIs and Microsoft Graph.</li>
+              <li>Connected ServiceNow requests to identity and administrative actions in Microsoft environments.</li>
+              <li>Supported automation of service processes tied to user and access operations.</li>
+              <li>Bridged platform workflow with real operational systems in a hybrid enterprise context.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>InvGate to ServiceNow Transition Initiative</h3>
+            <ul>
+              <li>Supported evaluation of ServiceNow as a replacement for existing ticketing processes in InvGate.</li>
+              <li>Helped align ITSM capabilities, identity integration, and service operations with the new platform direction.</li>
+              <li>Built a working developer instance and implementation approach to validate feasibility.</li>
+              <li>Established a stronger ServiceNow foundation for future service delivery standardization.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
+            <h3>Knowledge Management & Self-Service Structure</h3>
+            <ul>
+              <li>Organized knowledge and service entry points to support better self-service experience.</li>
+              <li>Aligned content and request pathways around user needs and operational clarity.</li>
+              <li>Improved discoverability of services and reduced friction in service intake.</li>
+              <li>Supported stronger adoption of centralized service experience.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
             <h3>Enterprise IAM Operations & Governance</h3>
             <ul>
               <li>Managed end-to-end IAM operations across user provisioning, deprovisioning, access control, and cross-system identity lifecycle.</li>
-              <li>Implemented priority-based request handling aligned to executive users, physician impact, and business-critical systems.</li>
-              <li>Established clear communication workflows to manage competing leadership requests and workload escalation.</li>
+              <li>Implemented priority-based request handling aligned with executive users, physician impact, and business-critical systems.</li>
+              <li>Established clearer communication and governance around competing leadership requests and escalation scenarios.</li>
+              <li>Strengthened accountability and operational visibility around access-related work.</li>
             </ul>
           </div>
 
           <div class="card glass project-card reveal">
-            <h3>Microsoft 365 & SharePoint Ownership Recovery</h3>
+            <h3>Microsoft 365 Ownership Recovery & Data Remediation</h3>
             <ul>
               <li>Investigated orphaned SharePoint and OneDrive ownership scenarios involving disabled or deleted users.</li>
-              <li>Recovered data using Rubrik and restored access by reinjecting files into active user OneDrive locations.</li>
-              <li>Re-established permissions and created a repeatable recovery process for orphaned data remediation.</li>
+              <li>Recovered data using backup systems and restored access by moving content into active ownership paths.</li>
+              <li>Re-established permissions and created a repeatable recovery process for inaccessible business files.</li>
+              <li>Reduced disruption caused by ownership loss and retention-window limitations.</li>
             </ul>
           </div>
 
           <div class="card glass project-card reveal">
-            <h3>Email Security, Mail Flow & SMTP Relay</h3>
+            <h3>SMTP Relay, Device Mail Flow & Operational Messaging</h3>
             <ul>
-              <li>Designed and configured SMTP relay architecture for printers and application mail flow through Microsoft 365.</li>
-              <li>Troubleshot hard bounce issues, connector configuration, allowed IPs, and Exchange Online delivery behavior.</li>
-              <li>Improved delivery reliability and overall mail infrastructure stability across multiple systems. </li>
-            </ul>
-          </div>
-
-          <div class="card glass project-card reveal">
-            <h3>Endpoint Security & Device Control</h3>
-            <ul>
-              <li>Configured CrowdStrike Falcon device control policies to monitor and manage USB/removable media usage.</li>
-              <li>Enhanced visibility by moving from manual reporting to automated event tracking and webhook-based alerting.</li>
-              <li>Improved endpoint security posture through real-time monitoring and device-level policy enforcement.</li>
-            </ul>
-          </div>
-
-          <div class="card glass project-card reveal">
-            <h3>Automated Time-Off Tracking</h3>
-            <ul>
-              <li>Built a centralized attendance tracking workflow using Exchange mail flow rules, a shared mailbox, and calendar sharing.</li>
-              <li>Configured rule logic to capture OOO, PTO, sick, and lateness emails while limiting scope to the correct department.</li>
-              <li>Improved leadership visibility into workforce availability and reduced manual tracking overhead.</li>
-            </ul>
-          </div>
-
-          <div class="card glass project-card reveal">
-            <h3>Cross-Tenant Access Strategy</h3>
-            <ul>
-              <li>Evaluated secure collaboration options across separate Microsoft 365 tenants including guest access, delegation, and migration scenarios.</li>
-              <li>Documented governance implications and technical limitations for leadership decision-making.</li>
-              <li>Designed access strategies aligned with organizational separation and security requirements.</li>
-            </ul>
-          </div>
-
-          <div class="card glass project-card reveal">
-            <h3>File Share Access Security Remediation</h3>
-            <ul>
-              <li>Processed access removal requests for shared drives and validated group-based and ACL-based permissions.</li>
-              <li>Supported deprovisioning workflows to reduce unauthorized access risk after role changes.</li>
-              <li>Strengthened access control compliance and reduced exposure to shared data.</li>
-            </ul>
-          </div>
-
-          <div class="card glass project-card reveal">
-            <h3>ServiceNow Implementation & Integration</h3>
-            <ul>
-              <li>Implemented SAML SSO and SCIM provisioning between Entra ID and ServiceNow.</li>
-              <li>Deployed MID Server and configured secure communication with internal systems.</li>
-              <li>Configured Discovery to scan and classify assets and support CMDB population.</li>
-              <li>Created and managed service accounts and credential strategies.</li>
-              <li>Troubleshot discovery failures, classification issues, and CI creation problems.</li>
-            </ul>
-          </div>
-
-          <div class="card glass project-card reveal">
-            <h3>Backup & License Optimization Analysis</h3>
-            <ul>
-              <li>Reviewed Rubrik backup usage and Microsoft 365 licensing allocation.</li>
-              <li>Identified opportunities for cost optimization and license reclamation.</li>
-              <li>Provided operational data to support infrastructure and licensing decisions.</li>
+              <li>Designed and troubleshot SMTP relay flow for printers and systems sending through Microsoft 365.</li>
+              <li>Resolved delivery failures, hard bounce issues, and connector-related configuration problems.</li>
+              <li>Improved mail flow reliability across operational systems and devices.</li>
+              <li>Strengthened visibility into email delivery behavior and infrastructure stability.</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="focus">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <h2 class="section-title">Current Focus</h2>
-            <p class="section-copy">
-              Continued growth in ServiceNow administration, platform engineering, identity operations, and enterprise automation.
-            </p>
-          </div>
-        </div>
+  <section id="focus">
+  <div class="container">
+    <div class="section-heading reveal">
+      <div>
+        <h2 class="section-title">Current Focus</h2>
+        <p class="section-copy">
+          Building deeper specialization in ServiceNow administration, implementation, and platform delivery with emphasis on scalable service operations, self-service experience, and enterprise automation.
+        </p>
+      </div>
+    </div>
 
-        <div class="focus-grid">
-          <div class="card glass reveal">
-            <ul>
-              <li>Expanding expertise in ServiceNow ITSM, CMDB, and Discovery.</li>
-              <li>Preparing for CIS-ITSM certification.</li>
-              <li>Building deeper skills in scripting, automation, and integrations.</li>
-              <li>Focusing on ServiceNow platform engineering and IT operations.</li>
-            </ul>
-          </div>
+    <div class="focus-grid">
+      <div class="card glass reveal">
+        <h3>What I’m Building Toward</h3>
+        <ul>
+          <li>Expanding from day-to-day platform administration into broader ServiceNow implementation and solution ownership.</li>
+          <li>Deepening expertise in ITSM, Employee Center, Employee Center Pro, Service Catalog, CMDB, and Discovery.</li>
+          <li>Strengthening platform integration capabilities across identity, provisioning, workflow automation, and enterprise systems.</li>
+          <li>Focusing on practical ServiceNow delivery that improves service quality, operational visibility, and user experience.</li>
+        </ul>
+      </div>
 
-          <div class="card glass reveal">
-            <h3>Areas of Interest</h3>
-            <div class="skill-list">
-              <span class="tag">Incident Management</span>
-              <span class="tag">Request Management</span>
-              <span class="tag">CMDB</span>
-              <span class="tag">Discovery</span>
-              <span class="tag">Service Catalog</span>
-              <span class="tag">Flow Designer</span>
-              <span class="tag">Identity Workflows</span>
-              <span class="tag">IT Operations</span>
-              <span class="tag">Governance</span>
-              <span class="tag">Automation</span>
-            </div>
-          </div>
+      <div class="card glass reveal">
+        <h3>Professional Direction</h3>
+        <div class="tag-list">
+          <span class="tag">ServiceNow Administration</span>
+          <span class="tag">Platform Implementation</span>
+          <span class="tag">Employee Center</span>
+          <span class="tag">Employee Center Pro</span>
+          <span class="tag">ITSM Optimization</span>
+          <span class="tag">Service Catalog</span>
+          <span class="tag">CMDB Strategy</span>
+          <span class="tag">Discovery</span>
+          <span class="tag">Workflow Automation</span>
+          <span class="tag">Enterprise Integrations</span>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
     <section id="contact">
       <div class="container">
@@ -896,7 +944,7 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Qalbe Kazmi. Built for ServiceNow and IT operations opportunities.</p>
+      <p>© 2026 Qalbe Kazmi. Built to showcase ServiceNow administration and enterprise systems experience.</p>
     </div>
   </footer>
 
