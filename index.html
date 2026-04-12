@@ -4,7 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qalbe Kazmi | ServiceNow Administrator</title>
+  <meta
+    name="description"
+    content="Qalbe Kazmi - ServiceNow Administrator and Microsoft Systems Administrator specializing in ITSM, CMDB, Discovery, MID Server, hybrid identity, and enterprise automation."
+  />
   <style>
+    :root {
+      --bg: #07111f;
+      --bg-soft: #0b1728;
+      --card: rgba(17, 24, 39, 0.78);
+      --card-strong: #111827;
+      --border: rgba(148, 163, 184, 0.16);
+      --text: #e5e7eb;
+      --muted: #94a3b8;
+      --heading: #ffffff;
+      --primary: #3b82f6;
+      --primary-2: #60a5fa;
+      --accent: #22c55e;
+      --shadow: 0 20px 50px rgba(0, 0, 0, 0.28);
+      --radius: 20px;
+      --max: 1180px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -14,176 +35,296 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #0b1120;
-      color: #e5e7eb;
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.15), transparent 32%),
+        radial-gradient(circle at top right, rgba(34, 197, 94, 0.08), transparent 20%),
+        linear-gradient(180deg, #07111f 0%, #0b1120 45%, #08101c 100%);
+      color: var(--text);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
     a {
-      color: #93c5fd;
+      color: var(--primary-2);
       text-decoration: none;
+      transition: 0.2s ease;
     }
 
     a:hover {
       color: #ffffff;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
-      width: 90%;
-      max-width: 1100px;
+      width: min(92%, var(--max));
       margin: 0 auto;
+    }
+
+    .glass {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     header {
       position: sticky;
       top: 0;
-      background: rgba(11, 17, 32, 0.95);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid #1f2937;
       z-index: 1000;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+      background: rgba(7, 17, 31, 0.78);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    nav {
+    .nav {
+      min-height: 76px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
-    }
-
-    nav h2 {
-      font-size: 1.1rem;
-      color: #ffffff;
-    }
-
-    nav ul {
-      display: flex;
+      justify-content: space-between;
       gap: 18px;
+    }
+
+    .brand {
+      font-size: 1.12rem;
+      font-weight: 700;
+      color: var(--heading);
+      letter-spacing: 0.2px;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
       list-style: none;
+      gap: 18px;
       flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--heading);
     }
 
     .hero {
-      padding: 80px 0 50px;
+      padding: 84px 0 46px;
+      position: relative;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 32px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 34px;
       align-items: center;
     }
 
-    .hero h1 {
-      font-size: 3rem;
-      line-height: 1.1;
-      color: #ffffff;
-      margin-bottom: 14px;
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--primary-2);
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 16px;
+      text-transform: uppercase;
     }
 
-    .hero h3 {
-      font-size: 1.2rem;
-      font-weight: normal;
-      color: #93c5fd;
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), transparent);
+      display: inline-block;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4.4rem);
+      line-height: 1.05;
+      color: var(--heading);
+      margin-bottom: 16px;
+      letter-spacing: -1.2px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.12rem;
+      color: var(--primary-2);
+      font-weight: 700;
       margin-bottom: 20px;
     }
 
     .hero p {
-      font-size: 1rem;
       color: #cbd5e1;
-      margin-bottom: 24px;
-      max-width: 700px;
+      max-width: 760px;
+      margin-bottom: 18px;
+      font-size: 1rem;
     }
 
-    .buttons {
+    .cta-row {
       display: flex;
-      gap: 14px;
       flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 24px;
     }
 
     .btn {
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 8px;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      font-weight: 700;
       transition: 0.2s ease;
+      border: 1px solid transparent;
     }
 
     .btn-primary {
-      background: #2563eb;
+      background: linear-gradient(135deg, var(--primary), #1d4ed8);
       color: white;
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.26);
     }
 
     .btn-primary:hover {
-      background: #1d4ed8;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(37, 99, 235, 0.32);
     }
 
     .btn-secondary {
-      border: 1px solid #334155;
-      color: #e5e7eb;
+      border-color: rgba(148, 163, 184, 0.2);
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.02);
     }
 
     .btn-secondary:hover {
-      border-color: #60a5fa;
-      color: #ffffff;
+      border-color: var(--primary-2);
+      color: white;
     }
 
-    .profile-card {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 18px;
-      padding: 24px;
-      text-align: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    .hero-card {
+      padding: 26px;
+      border-radius: 26px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .profile-card img {
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -35% auto;
       width: 180px;
       height: 180px;
-      object-fit: cover;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.24), transparent 68%);
+      pointer-events: none;
+    }
+
+    .profile-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .profile-ring {
+      width: 230px;
+      height: 230px;
       border-radius: 50%;
-      border: 4px solid #1d4ed8;
-      margin-bottom: 18px;
-      background: #1f2937;
+      padding: 6px;
+      background: linear-gradient(135deg, #60a5fa, #1d4ed8, #22c55e);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .profile-card h4 {
-      color: #ffffff;
+    .profile-ring img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center;
+      border: 4px solid #0f172a;
+      background: #172033;
+    }
+
+    .hero-card h3 {
+      color: var(--heading);
+      text-align: center;
+      font-size: 1.28rem;
       margin-bottom: 6px;
-      font-size: 1.2rem;
     }
 
-    .profile-card p {
-      color: #94a3b8;
-      font-size: 0.95rem;
+    .hero-card .location {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .mini-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .mini-tags span,
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(30, 41, 59, 0.82);
+      color: #bfdbfe;
+      border: 1px solid rgba(96, 165, 250, 0.15);
+      font-size: 0.88rem;
     }
 
     section {
-      padding: 55px 0;
+      padding: 38px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
     }
 
     .section-title {
-      font-size: 2rem;
-      color: #ffffff;
-      margin-bottom: 22px;
+      font-size: clamp(1.8rem, 3vw, 2.3rem);
+      color: var(--heading);
+      letter-spacing: -0.5px;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 700px;
     }
 
     .card {
-      background: #111827;
-      border: 1px solid #1f2937;
-      border-radius: 16px;
-      padding: 22px;
+      border-radius: var(--radius);
+      padding: 24px;
       margin-bottom: 18px;
     }
 
     .card h3 {
-      color: #ffffff;
-      margin-bottom: 8px;
+      color: var(--heading);
+      margin-bottom: 6px;
+      font-size: 1.22rem;
     }
 
     .muted {
-      color: #94a3b8;
+      color: var(--muted);
       font-size: 0.95rem;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .card ul {
@@ -191,123 +332,240 @@
     }
 
     .card li {
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       color: #d1d5db;
     }
 
-    .grid-2 {
+    .about-grid,
+    .focus-grid,
+    .project-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 18px;
     }
 
-    .tag-list {
+    .about-grid {
+      grid-template-columns: 1.15fr 0.85fr;
+    }
+
+    .focus-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .skill-list {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 15px;
+      margin-top: 14px;
     }
 
-    .tag {
-      background: #1e293b;
-      color: #bfdbfe;
-      border: 1px solid #334155;
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-size: 0.9rem;
+    .timeline-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .timeline-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 18px;
+      bottom: 18px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--primary), transparent);
+      opacity: 0.8;
+    }
+
+    .timeline-content {
+      padding-left: 18px;
+    }
+
+    .project-card {
+      height: 100%;
+    }
+
+    .contact-card p {
+      margin-bottom: 10px;
+    }
+
+    .contact-card strong {
+      color: #fff;
     }
 
     footer {
-      border-top: 1px solid #1f2937;
-      padding: 28px 0 40px;
-      color: #94a3b8;
+      border-top: 1px solid rgba(148, 163, 184, 0.12);
+      margin-top: 26px;
+      padding: 30px 0 44px;
       text-align: center;
+      color: var(--muted);
     }
 
-    @media (max-width: 850px) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
       .hero-grid,
-      .grid-2 {
+      .about-grid,
+      .focus-grid,
+      .project-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 2.2rem;
+      .hero {
+        padding-top: 58px;
       }
 
-      nav {
+      .hero-card {
+        max-width: 500px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        padding: 16px 0;
         flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
         gap: 12px;
+      }
+
+      .profile-ring {
+        width: 190px;
+        height: 190px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .hero h1 {
+        letter-spacing: -0.8px;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="container">
-      <nav>
-        <h2>Qalbe Kazmi</h2>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#focus">Focus</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+    <div class="container nav">
+      <div class="brand">Qalbe Kazmi</div>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#focus">Focus</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container hero-grid">
-        <div>
-          <h1>ServiceNow Administrator & IT Systems Professional</h1>
-          <h3>Workflow Automation • ITSM • Identity & Systems Operations</h3>
+        <div class="reveal">
+          <div class="eyebrow">ServiceNow • Hybrid Systems • Automation</div>
+          <h1>ServiceNow Administrator & Hybrid Systems Engineer</h1>
+          <div class="hero-subtitle">ITSM • CMDB • Discovery • Identity & Automation</div>
+
           <p>
-            I’m Qalbe Kazmi, an IT professional with experience across ServiceNow administration,
-            workflow design, systems support, identity-related operations, and process improvement.
-            I’ve helped modernize manual business processes, support enterprise platforms, and build
-            practical solutions that improve service delivery and operational efficiency.
+            ServiceNow Certified System Administrator with hands-on experience implementing
+            ITSM workflows, CMDB, and Discovery in hybrid enterprise environments.
+            Experienced in integrating ServiceNow with Microsoft 365, Entra ID, and Active Directory
+            to automate identity lifecycle and service operations.
           </p>
-          <div class="buttons">
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/qalbekazmi/" target="_blank">LinkedIn</a>
+
+          <p>
+            I specialize in bridging infrastructure and ServiceNow by building practical solutions involving
+            MID Server deployment, SSO integrations, workflow automation, and system integrations across
+            on-prem and cloud platforms.
+          </p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/qalbekazmi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="btn btn-secondary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="mailto:qkazmi@qalbekazmi.com">Email Me</a>
           </div>
         </div>
 
-        <div class="profile-card">
-          <img src="profile.jpg" alt="Qalbe Kazmi headshot" />
-          <h4>Qalbe Kazmi</h4>
-          <p>New York, NY</p>
-          <p>ServiceNow • IT Operations • Workflow Improvement</p>
+        <div class="hero-card glass reveal">
+          <div class="profile-wrap">
+            <div class="profile-ring">
+              <img src="IMG_0129.jpg" alt="Qalbe Kazmi headshot" />
+            </div>
+          </div>
+          <h3>Qalbe Kazmi</h3>
+          <div class="location">Brooklyn, New York</div>
+          <div class="mini-tags">
+            <span>ServiceNow</span>
+            <span>IT Operations</span>
+            <span>Microsoft 365</span>
+            <span>Identity</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="about">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="card">
-          <p>
-            My background blends platform administration, business process improvement, and end-user support.
-            I’ve worked in environments where I had to bridge business needs with technical execution—whether
-            that meant supporting service desk operations, helping transition legacy systems into ServiceNow,
-            or designing workflow-driven processes for sales, finance, and DMV-related operations.
-          </p>
-          <br />
-          <p>
-            I’m especially interested in ServiceNow, ITSM, automation, and growing further into technical
-            platform work that combines configuration, integration, and operational problem-solving.
-          </p>
+        <div class="section-heading reveal">
+          <div>
+            <h2 class="section-title">About Me</h2>
+            <p class="section-copy">
+              ServiceNow administration, Microsoft infrastructure, and enterprise systems integration.
+            </p>
+          </div>
+        </div>
 
-          <div class="tag-list">
-            <span class="tag">ServiceNow Administration</span>
-            <span class="tag">ITSM</span>
-            <span class="tag">Flow Designer</span>
-            <span class="tag">Workflow Automation</span>
-            <span class="tag">Identity & Access</span>
-            <span class="tag">Systems Support</span>
-            <span class="tag">Process Improvement</span>
+        <div class="about-grid">
+          <div class="card glass reveal">
+            <p>
+              My background combines ServiceNow platform administration, Microsoft infrastructure,
+              and enterprise system integration. I have worked across environments involving Active Directory,
+              Entra ID, endpoint management, and IT service operations, supporting both technical teams
+              and business workflows.
+            </p>
+            <br />
+            <p>
+              I have implemented ServiceNow capabilities including ITSM workflows, MID Server configuration,
+              Discovery, and CMDB population, along with integrations that support onboarding, access control,
+              and service delivery.
+            </p>
+            <br />
+            <p>
+              I am focused on growing within ServiceNow platform engineering, IT operations,
+              and automation, with an emphasis on scalable and well-integrated solutions.
+            </p>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>Core Focus Areas</h3>
+            <div class="skill-list">
+              <span class="tag">ServiceNow Administration</span>
+              <span class="tag">ITSM</span>
+              <span class="tag">CMDB</span>
+              <span class="tag">Discovery</span>
+              <span class="tag">MID Server</span>
+              <span class="tag">Flow Designer</span>
+              <span class="tag">Entra ID</span>
+              <span class="tag">Active Directory</span>
+              <span class="tag">Microsoft 365</span>
+              <span class="tag">REST APIs</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Hybrid Infrastructure</span>
+            </div>
           </div>
         </div>
       </div>
@@ -315,84 +573,115 @@
 
     <section id="experience">
       <div class="container">
-        <h2 class="section-title">Work Experience</h2>
-
-        <div class="card">
-          <h3>IT Systems / Infrastructure Support</h3>
-          <div class="muted">Acacia Network / Related enterprise systems work</div>
-          <ul>
-            <li>Support day-to-day IT operations across systems, identity, and access-related tasks.</li>
-            <li>Work with tools such as InvGate, ManageEngine ADManager Plus, on-prem Active Directory, and Entra ID.</li>
-            <li>Assist with account administration, mailbox and access troubleshooting, system coordination, and operational support.</li>
-            <li>Handle cross-functional technical requests while balancing urgency, business impact, and user support needs.</li>
-          </ul>
+        <div class="section-heading reveal">
+          <div>
+            <h2 class="section-title">Work Experience</h2>
+            <p class="section-copy">
+              Experience across enterprise systems, ServiceNow implementation, workflow automation, and IT operations.
+            </p>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Bical Cadillac</h3>
-          <div class="muted">ServiceNow process improvement and business workflow implementation</div>
-          <ul>
-            <li>Helped move manual business processes into ServiceNow, improving visibility, accountability, and handoffs between departments.</li>
-            <li>Supported customer workflow design for three intake paths: migrated CRM records, website inquiries, and manual walk-ins.</li>
-            <li>Built workflow-driven steps that assigned tasks to sales, sales management, DMV, and finance teams through the lifecycle of a vehicle purchase.</li>
-            <li>Contributed to broader operational improvements involving inventory, commission, DMV workflow, and Salesforce CRM integration.</li>
-            <li>Participated in data migration and business process alignment as systems moved away from manual tracking.</li>
-          </ul>
+        <div class="card glass timeline-card reveal">
+          <div class="timeline-content">
+            <h3>Acacia Network</h3>
+            <div class="muted">ServiceNow Administrator / Microsoft Systems Administrator</div>
+            <ul>
+              <li>Administer hybrid identity environment integrating Active Directory and Entra ID (Azure AD), supporting user lifecycle and access control.</li>
+              <li>Manage Microsoft 365 services including Exchange Online and Purview, ensuring secure email operations and compliance.</li>
+              <li>Implemented SSO integrations using Entra ID to improve access management and reduce authentication issues.</li>
+              <li>Automated onboarding and offboarding using ADManager Plus, improving provisioning efficiency.</li>
+              <li>Led evaluation and implementation of ServiceNow as a replacement for InvGate, aligning the platform with ITSM requirements.</li>
+              <li>Configured SAML SSO and SCIM provisioning between Entra ID and ServiceNow.</li>
+              <li>Deployed and configured MID Server to enable secure communication between ServiceNow and internal systems.</li>
+              <li>Implemented ServiceNow Discovery to identify and classify assets, supporting CMDB population.</li>
+              <li>Developed ITSM workflows including incident routing, service requests, and role-based access.</li>
+              <li>Integrated ServiceNow with Microsoft services using REST APIs and Microsoft Graph.</li>
+              <li>Troubleshot Discovery, CMDB, and credential-related issues including classification failures.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Verizon</h3>
-          <div class="muted">IT Systems Administration / Service Desk / Platform transition exposure</div>
-          <ul>
-            <li>Provided Tier 1 support for incidents, service requests, password resets, and end-user platform issues.</li>
-            <li>Supported the transition from the legacy At Your Service (AYS) platform into ServiceNow.</li>
-            <li>Participated in user acceptance testing and feedback for Incident and Request Management processes.</li>
-            <li>Assisted with role assignments, group membership updates, profile configuration, and knowledge-related support tasks.</li>
-            <li>Reported and tracked issues involving notifications, task assignment behavior, and interface-related concerns.</li>
-          </ul>
+        <div class="card glass timeline-card reveal">
+          <div class="timeline-content">
+            <h3>Bical Cadillac</h3>
+            <div class="muted">ServiceNow Administrator / Systems Implementation</div>
+            <ul>
+              <li>Implemented ServiceNow workflows to digitize dealership operations and reduce manual processes.</li>
+              <li>Designed customer intake workflows across CRM migration, online inquiries, and walk-in channels.</li>
+              <li>Automated task routing across sales, finance, and DMV departments.</li>
+              <li>Built Service Catalog items and workflow automation using Flow Designer.</li>
+              <li>Integrated ServiceNow with Salesforce CRM for customer data synchronization.</li>
+              <li>Performed CMDB cleanup, data alignment, and process standardization.</li>
+              <li>Developed dashboards and reports to improve operational visibility.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card glass timeline-card reveal">
+          <div class="timeline-content">
+            <h3>Verizon</h3>
+            <div class="muted">IT Systems Specialist</div>
+            <ul>
+              <li>Supported IT service desk operations and end-user support across enterprise systems.</li>
+              <li>Assisted in migration from the AYS platform to ServiceNow.</li>
+              <li>Participated in UAT testing for Incident and Request Management modules.</li>
+              <li>Handled user administration including roles, groups, and access support.</li>
+              <li>Tracked and reported system issues involving notifications, routing, and platform behavior.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="projects">
       <div class="container">
-        <h2 class="section-title">Featured Projects</h2>
+        <div class="section-heading reveal">
+          <div>
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-copy">
+              Practical ServiceNow and systems work focused on real implementation, automation, and operational improvement.
+            </p>
+          </div>
+        </div>
 
-        <div class="grid-2">
-          <div class="card">
+        <div class="project-grid">
+          <div class="card glass project-card reveal">
+            <h3>ServiceNow Implementation & Integration</h3>
+            <ul>
+              <li>Implemented SAML SSO and SCIM provisioning between Entra ID and ServiceNow.</li>
+              <li>Deployed MID Server and configured secure communication with internal systems.</li>
+              <li>Configured Discovery to scan and classify network assets and support CMDB population.</li>
+              <li>Created and managed service accounts and credential strategies.</li>
+              <li>Troubleshot Discovery failures, classification issues, and CI creation problems.</li>
+            </ul>
+          </div>
+
+          <div class="card glass project-card reveal">
             <h3>Customer Purchase Workflow in ServiceNow</h3>
             <ul>
-              <li>Implemented a ServiceNow workflow at Bical Cadillac to manage the full customer intake-to-delivery process.</li>
-              <li>Included multiple intake sources: legacy CRM migrations, online website inquiries, and manual walk-ins.</li>
-              <li>Automatically routed work to sales, sales managers, DMV, and finance based on the current stage.</li>
-              <li>Improved visibility into pending steps such as inspection, paperwork, finance coordination, and customer delivery.</li>
+              <li>Implemented a workflow at Bical Cadillac to manage the full customer intake-to-delivery process.</li>
+              <li>Included intake from CRM migration, website inquiries, and manual walk-ins.</li>
+              <li>Automatically routed work to sales, sales managers, DMV, and finance teams.</li>
+              <li>Improved visibility into pending steps such as paperwork, inspection, financing, and customer delivery.</li>
             </ul>
           </div>
 
-          <div class="card">
+          <div class="card glass project-card reveal">
             <h3>Business Process Digitization</h3>
             <ul>
-              <li>Helped transform previously manual workflows into trackable digital processes.</li>
+              <li>Helped transform manual workflows into trackable digital processes.</li>
               <li>Supported operational use cases across inventory management, DMV workflow, and commission-related processes.</li>
-              <li>Improved coordination between departments by reducing manual follow-up and informal tracking.</li>
+              <li>Improved coordination by reducing manual follow-up and informal tracking.</li>
             </ul>
           </div>
 
-          <div class="card">
-            <h3>ServiceNow Platform Transition Support</h3>
+          <div class="card glass project-card reveal">
+            <h3>Platform Transition Support</h3>
             <ul>
-              <li>Assisted during the transition from a legacy internal platform to ServiceNow.</li>
-              <li>Supported testing, issue tracking, knowledge migration, and adoption-related activities.</li>
-              <li>Gained exposure to platform administration, process design, and service management operations.</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>SSO and Platform Integration Exposure</h3>
-            <ul>
-              <li>Worked around environments involving Microsoft tenant setup and identity-driven integrations.</li>
-              <li>Contributed to work involving Entra ID, ServiceNow ITSM, Salesforce CRM, and related access/flow requirements.</li>
-              <li>Built practical understanding of how business platforms connect across identity, workflow, and user lifecycle needs.</li>
+              <li>Supported migration from a legacy internal platform to ServiceNow.</li>
+              <li>Assisted with testing, issue tracking, knowledge migration, and adoption-related activities.</li>
+              <li>Built practical exposure to platform administration, ITSM processes, and service management operations.</li>
             </ul>
           </div>
         </div>
@@ -401,28 +690,39 @@
 
     <section id="focus">
       <div class="container">
-        <h2 class="section-title">Current Focus</h2>
-
-        <div class="card">
-          <ul>
-            <li>Continuing to build deeper hands-on expertise in ServiceNow administration and implementation.</li>
-            <li>Preparing for the CIS-ITSM certification and expanding platform knowledge in IT service management.</li>
-            <li>Strengthening skills in scripting, automation, integrations, and platform configuration.</li>
-            <li>Growing from operational admin and support experience toward more advanced ServiceNow technical work.</li>
-          </ul>
+        <div class="section-heading reveal">
+          <div>
+            <h2 class="section-title">Current Focus</h2>
+            <p class="section-copy">
+              Continued growth in ServiceNow administration, platform engineering, and enterprise automation.
+            </p>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Areas of Interest</h3>
-          <div class="tag-list">
-            <span class="tag">Incident Management</span>
-            <span class="tag">Request Management</span>
-            <span class="tag">CMDB Exposure</span>
-            <span class="tag">Service Catalog</span>
-            <span class="tag">Flow Designer</span>
-            <span class="tag">IT Operations</span>
-            <span class="tag">Identity Workflows</span>
-            <span class="tag">Platform Delivery</span>
+        <div class="focus-grid">
+          <div class="card glass reveal">
+            <ul>
+              <li>Expanding expertise in ServiceNow ITSM, CMDB, and Discovery.</li>
+              <li>Preparing for CIS-ITSM certification.</li>
+              <li>Building deeper skills in scripting, automation, and integrations.</li>
+              <li>Focusing on ServiceNow platform engineering and IT operations.</li>
+            </ul>
+          </div>
+
+          <div class="card glass reveal">
+            <h3>Areas of Interest</h3>
+            <div class="skill-list">
+              <span class="tag">Incident Management</span>
+              <span class="tag">Request Management</span>
+              <span class="tag">CMDB</span>
+              <span class="tag">Discovery</span>
+              <span class="tag">Service Catalog</span>
+              <span class="tag">Flow Designer</span>
+              <span class="tag">Identity Workflows</span>
+              <span class="tag">IT Operations</span>
+              <span class="tag">Automation</span>
+              <span class="tag">Platform Engineering</span>
+            </div>
           </div>
         </div>
       </div>
@@ -430,15 +730,19 @@
 
     <section id="contact">
       <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="card">
-          <p>
-            Want to connect or learn more about my background?
-          </p>
-          <br />
-          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/qalbekazmi/" target="_blank">linkedin.com/in/qalbekazmi</a></p>
-          <p><strong>Website:</strong> qalbekazmi.com</p>
-          <p><strong>Email:</strong> add your professional email here</p>
+        <div class="section-heading reveal">
+          <div>
+            <h2 class="section-title">Contact</h2>
+            <p class="section-copy">
+              Let’s connect.
+            </p>
+          </div>
+        </div>
+
+        <div class="card glass contact-card reveal">
+          <p><strong>Email:</strong> <a href="mailto:qkazmi@qalbekazmi.com">qkazmi@qalbekazmi.com</a></p>
+          <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/qalbekazmi/" target="_blank" rel="noopener noreferrer">linkedin.com/in/qalbekazmi</a></p>
+          <p><strong>Website:</strong> <a href="https://qalbekazmi.com" target="_blank" rel="noopener noreferrer">qalbekazmi.com</a></p>
         </div>
       </div>
     </section>
@@ -446,8 +750,23 @@
 
   <footer>
     <div class="container">
-      <p>© 2026 Qalbe Kazmi. Built with GitHub Pages.</p>
+      <p>© 2026 Qalbe Kazmi. Built for ServiceNow and IT operations opportunities.</p>
     </div>
   </footer>
+
+  <script>
+    const reveals = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((el) => revealObserver.observe(el));
+  </script>
 </body>
 </html>
