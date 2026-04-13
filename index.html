@@ -4,81 +4,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qalbe Kazmi | IT Systems & ServiceNow Portfolio</title>
-  <meta
-    name="description"
-    content="Portfolio of Qalbe Kazmi - IT Systems Administrator with ServiceNow, identity, automation, and enterprise support experience."
-  />
+  <meta name="description" content="Portfolio of Qalbe Kazmi - IT Systems Administrator with enterprise systems, identity, automation, and ServiceNow-aligned process experience." />
   <style>
     :root {
-      --bg: #0b0b0f;
-      --bg-soft: #12121a;
-      --card: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(255, 255, 255, 0.1);
-      --text: #f5f7fb;
-      --muted: #b7becf;
-      --accent: #6ea8fe;
-      --accent-2: #9b8cff;
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-      --radius: 22px;
+      --bg: #090b11;
+      --bg-2: #0f1420;
+      --surface: rgba(255,255,255,0.06);
+      --surface-2: rgba(255,255,255,0.04);
+      --border: rgba(255,255,255,0.10);
+      --text: #f4f7fb;
+      --muted: #b8c0d0;
+      --accent: #7bb0ff;
+      --accent-2: #9c8dff;
+      --success: #89e5b4;
+      --shadow: 0 20px 40px rgba(0,0,0,0.28);
+      --radius: 24px;
       --max: 1180px;
-      --header-h: 72px;
+      --header-h: 74px;
     }
 
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(110, 168, 254, 0.12), transparent 28%),
-        radial-gradient(circle at top right, rgba(155, 140, 255, 0.12), transparent 24%),
-        linear-gradient(180deg, #0b0b0f 0%, #101019 100%);
       color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(123,176,255,0.16), transparent 26%),
+        radial-gradient(circle at 85% 12%, rgba(156,141,255,0.16), transparent 24%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
       overflow-x: hidden;
-      scroll-snap-type: y proximity;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
-      width: min(100% - 32px, var(--max));
+      width: min(100% - 28px, var(--max));
       margin: 0 auto;
     }
 
-    /* HEADER */
     .site-header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1000;
-      transition: transform 0.35s ease, background 0.25s ease, border-color 0.25s ease;
-      background: rgba(11, 11, 15, 0.72);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(9,11,17,0.70);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: transform 0.32s ease, background 0.2s ease;
     }
 
-    .site-header.hide {
-      transform: translateY(-100%);
-    }
+    .site-header.hide { transform: translateY(-100%); }
 
     .header-inner {
-      width: min(100% - 32px, var(--max));
+      width: min(100% - 28px, var(--max));
       margin: 0 auto;
       min-height: var(--header-h);
       display: flex;
@@ -87,271 +68,300 @@
       gap: 16px;
     }
 
-    .brand {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-    }
-
+    .brand { min-width: 0; }
     .brand-name {
       font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: 0.2px;
-      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.02em;
     }
-
     .brand-role {
-      font-size: 0.76rem;
-      color: var(--muted);
       margin-top: 4px;
-      line-height: 1.2;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .nav a {
-      font-size: 0.94rem;
       color: var(--muted);
-      transition: color 0.2s ease, opacity 0.2s ease;
+      font-size: 0.78rem;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .nav a:hover,
-    .nav a:focus-visible {
-      color: var(--text);
-    }
-
-    /* SECTIONS */
-    section {
-      scroll-snap-align: start;
-      padding: 104px 0 48px;
-      min-height: 100vh;
+    .desktop-nav {
       display: flex;
       align-items: center;
+      gap: 18px;
     }
 
-    .section-inner {
-      width: 100%;
+    .desktop-nav a {
+      color: var(--muted);
+      font-size: 0.93rem;
+      transition: color 0.2s ease;
+    }
+    .desktop-nav a:hover { color: var(--text); }
+
+    .menu-btn {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu {
+      display: none;
+      width: min(100% - 28px, var(--max));
+      margin: 0 auto 12px;
+      background: rgba(13,17,27,0.94);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .mobile-menu.open { display: grid; gap: 8px; }
+    .mobile-menu a {
+      padding: 14px;
+      border-radius: 14px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    section {
+      padding: 110px 0 56px;
     }
 
     .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       color: var(--accent);
-      font-size: 0.86rem;
-      font-weight: 700;
+      font-size: 0.82rem;
+      font-weight: 800;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       margin-bottom: 14px;
     }
 
-    h1, h2, h3, p {
-      margin: 0;
+    .eyebrow::before {
+      content: "";
+      width: 20px;
+      height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
     }
 
+    h1, h2, h3, p { margin: 0; }
     h1 {
-      font-size: clamp(2.3rem, 7vw, 5.5rem);
-      line-height: 0.95;
-      letter-spacing: -0.04em;
+      font-size: clamp(2.6rem, 7.4vw, 5.8rem);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
       margin-bottom: 18px;
     }
-
     h2 {
-      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-size: clamp(1.9rem, 4vw, 3.1rem);
       line-height: 1;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
       margin-bottom: 16px;
+    }
+    h3 {
+      font-size: 1.06rem;
+      line-height: 1.3;
     }
 
     .lead {
-      font-size: clamp(1rem, 1.7vw, 1.2rem);
-      line-height: 1.7;
+      max-width: 760px;
       color: var(--muted);
-      max-width: 720px;
+      font-size: clamp(1rem, 1.7vw, 1.14rem);
+      line-height: 1.8;
     }
 
     .section-copy {
       color: var(--muted);
       font-size: 1rem;
-      line-height: 1.75;
-      max-width: 760px;
+      line-height: 1.8;
+      max-width: 780px;
       margin-bottom: 28px;
     }
 
-    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 28px;
-      align-items: end;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 26px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 18px;
     }
 
     .hero-actions {
       display: flex;
-      gap: 14px;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 26px;
+      margin-top: 28px;
     }
 
     .btn {
+      min-height: 48px;
+      padding: 0 18px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 18px;
       border-radius: 999px;
-      font-weight: 600;
       font-size: 0.95rem;
-      border: 1px solid transparent;
-      transition: transform 0.18s ease, opacity 0.18s ease, border-color 0.18s ease;
+      font-weight: 700;
+      transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-1px);
-    }
-
+    .btn:hover { transform: translateY(-1px); }
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: #08111d;
+      color: #06101d;
     }
-
     .btn-secondary {
-      border-color: rgba(255, 255, 255, 0.14);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border);
       color: var(--text);
-      background: rgba(255, 255, 255, 0.04);
     }
 
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border: 1px solid var(--card-border);
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid var(--border);
       border-radius: 28px;
       padding: 22px;
       box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
     }
 
-    .hero-metrics {
+    .hero-panel::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -10% auto;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(123,176,255,0.14), transparent 60%);
+      pointer-events: none;
+    }
+
+    .profile-box {
+      aspect-ratio: 4 / 5;
+      border-radius: 24px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(180deg, rgba(123,176,255,0.10), rgba(156,141,255,0.08)),
+        rgba(255,255,255,0.03);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      margin-bottom: 16px;
+    }
+
+    .profile-placeholder {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background:
+        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
+    }
+
+    .quick-stats {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 12px;
+      gap: 12px;
+      margin-top: 14px;
     }
 
-    .metric {
-      padding: 16px;
+    .stat {
+      padding: 14px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.045);
+      background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .metric-number {
-      font-size: 1.4rem;
-      font-weight: 800;
+    .stat strong {
+      display: block;
+      font-size: 1.05rem;
       margin-bottom: 6px;
     }
 
-    .metric-label {
+    .stat span {
       color: var(--muted);
       font-size: 0.9rem;
-      line-height: 1.4;
+      line-height: 1.5;
     }
 
-    /* CARDS */
-    .grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .grid-2 {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
+    .grid { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
     .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
+      background: var(--surface);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 22px;
       box-shadow: var(--shadow);
     }
 
-    .card h3 {
-      font-size: 1.08rem;
-      margin-bottom: 10px;
-      line-height: 1.3;
-    }
-
     .card p {
       color: var(--muted);
-      line-height: 1.7;
-      font-size: 0.97rem;
+      line-height: 1.75;
+      font-size: 0.96rem;
+      margin-top: 10px;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .tag {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.84rem;
-      line-height: 1;
-    }
-
-    /* EXPERIENCE */
     .timeline {
       display: grid;
       gap: 18px;
     }
 
     .exp-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 26px;
       padding: 24px;
       box-shadow: var(--shadow);
     }
 
     .exp-top {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
-      gap: 16px;
-      margin-bottom: 14px;
+      justify-content: space-between;
+      gap: 14px;
       flex-wrap: wrap;
+      margin-bottom: 14px;
     }
 
-    .job-title {
-      font-size: 1.12rem;
-      font-weight: 700;
-    }
-
-    .job-meta {
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.5;
-      margin-top: 6px;
-    }
+    .job-title { font-size: 1.12rem; font-weight: 800; }
+    .job-meta { color: var(--muted); font-size: 0.92rem; margin-top: 6px; line-height: 1.6; }
 
     .pill {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
-      color: var(--muted);
       padding: 8px 12px;
       border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
       font-size: 0.84rem;
       white-space: nowrap;
     }
@@ -364,71 +374,114 @@
     }
 
     .point {
-      padding: 14px 16px;
+      padding: 15px 16px;
       border-radius: 18px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.035);
       border: 1px solid rgba(255,255,255,0.06);
       color: var(--muted);
+      line-height: 1.68;
       font-size: 0.94rem;
-      line-height: 1.65;
     }
 
-    /* HORIZONTAL MOBILE SCROLL */
-    .scroll-row {
+    .projects-grid {
       display: grid;
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(280px, 360px);
-      gap: 16px;
-      overflow-x: auto;
-      padding-bottom: 6px;
-      scroll-snap-type: x proximity;
-      scrollbar-width: none;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
-    .scroll-row::-webkit-scrollbar {
-      display: none;
-    }
-
-    .scroll-row .card,
-    .scroll-row .project-card,
-    .scroll-row .skill-card {
-      scroll-snap-align: start;
-    }
-
-    .project-card,
-    .skill-card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.04));
+      border: 1px solid var(--border);
+      border-radius: 26px;
       padding: 22px;
-      min-height: 220px;
+      min-height: 250px;
       box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
-    .project-card h3,
-    .skill-card h3 {
-      margin-bottom: 10px;
-      font-size: 1.06rem;
-      line-height: 1.3;
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(123,176,255,0.35);
     }
 
-    .project-card p,
-    .skill-card p {
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto auto 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    }
+
+    .project-card p {
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
+      margin-top: 10px;
       font-size: 0.96rem;
     }
 
-    /* CONTACT */
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 18px;
-      align-items: stretch;
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
     }
 
-    .contact-card {
-      min-height: 100%;
+    .tag {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .skills-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .skill-line {
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .skill-line span:last-child {
+      color: var(--muted);
+      text-align: right;
+      font-size: 0.9rem;
+    }
+
+    .scroll-row {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: 84%;
+      gap: 14px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding-bottom: 4px;
+    }
+    .scroll-row::-webkit-scrollbar { display: none; }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 18px;
     }
 
     .contact-links {
@@ -441,123 +494,47 @@
     .contact-link {
       padding: 12px 14px;
       border-radius: 14px;
-      border: 1px solid rgba(255,255,255,0.08);
       background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       color: var(--muted);
       font-size: 0.94rem;
     }
 
     footer {
-      padding: 24px 0 40px;
+      padding: 18px 0 34px;
       color: var(--muted);
       text-align: center;
       font-size: 0.9rem;
     }
 
-    /* UTIL */
-    .mobile-only {
-      display: none;
-    }
+    .mobile-only { display: none; }
 
-    .desktop-only {
-      display: block;
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 980px) {
       .hero-grid,
       .contact-wrap,
+      .skills-wrap,
       .grid-3,
       .grid-2,
-      .exp-points {
-        grid-template-columns: 1fr;
-      }
+      .projects-grid,
+      .exp-points { grid-template-columns: 1fr; }
 
-      .desktop-grid-projects,
-      .desktop-grid-skills {
-        display: none;
-      }
+      .desktop-nav { display: none; }
+      .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+      .mobile-only { display: block; }
+      .desktop-only { display: none; }
 
-      .mobile-only {
-        display: block;
-      }
-
-      section {
-        min-height: auto;
-        padding: 96px 0 42px;
-      }
-    }
-
-    @media (min-width: 981px) {
-      .mobile-scroll-projects,
-      .mobile-scroll-skills {
-        display: none;
-      }
+      section { padding: 100px 0 44px; }
+      .hero { min-height: auto; }
     }
 
     @media (max-width: 720px) {
-      :root {
-        --header-h: 68px;
-      }
-
-      .header-inner {
-        align-items: center;
-      }
-
-      .brand-role {
-        display: none;
-      }
-
-      .nav {
-        gap: 12px;
-      }
-
-      .nav a {
-        font-size: 0.86rem;
-      }
-
-      .hero-card {
-        padding: 18px;
-      }
-
-      .hero-actions {
-        gap: 10px;
-      }
-
-      .btn {
-        min-height: 46px;
-        font-size: 0.92rem;
-      }
-
-      .card,
-      .project-card,
-      .skill-card,
-      .exp-card {
-        padding: 18px;
-      }
-
-      .scroll-row {
-        grid-auto-columns: 84%;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .container,
-      .header-inner {
-        width: min(100% - 20px, var(--max));
-      }
-
-      .nav {
-        gap: 10px;
-      }
-
-      .nav a {
-        font-size: 0.82rem;
-      }
-
-      .scroll-row {
-        grid-auto-columns: 88%;
-      }
+      :root { --header-h: 68px; }
+      .container, .header-inner { width: min(100% - 20px, var(--max)); }
+      .brand-role { display: none; }
+      .card, .exp-card, .project-card, .hero-panel { padding: 18px; }
+      .hero-kicker { font-size: 0.82rem; }
+      .btn { min-height: 46px; font-size: 0.92rem; }
+      .scroll-row { grid-auto-columns: 88%; }
     }
   </style>
 </head>
@@ -565,124 +542,124 @@
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
       <div class="brand">
-        <span class="brand-name">Qalbe Kazmi</span>
-        <span class="brand-role">IT Systems Administrator | ServiceNow Portfolio</span>
+        <div class="brand-name">Qalbe Kazmi</div>
+        <div class="brand-role">IT Systems Administrator • ServiceNow Portfolio</div>
       </div>
 
-      <nav class="nav" aria-label="Main navigation">
+      <nav class="desktop-nav" aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
     </div>
   </header>
 
   <main>
-    <!-- HERO -->
-    <section id="home">
-      <div class="container section-inner">
+    <section class="hero" id="home">
+      <div class="container">
         <div class="hero-grid">
           <div>
-            <div class="eyebrow">Enterprise Systems • Identity • Automation</div>
-            <h1>IT Systems work with a ServiceNow mindset.</h1>
+            <div class="hero-kicker">Enterprise Systems • Identity • Workflow Thinking</div>
+            <h1>Modern IT operations with a ServiceNow-style lens.</h1>
             <p class="lead">
-              I support enterprise infrastructure, identity, messaging, and access operations while building my ServiceNow portfolio around real-world implementations. My experience includes Acacia Network systems work, IAM and email administration, and workflow-driven process improvement.
+              I work across enterprise systems, identity, email, and operational support while building a portfolio that translates real Acacia Network work into structured ITSM and implementation-ready storytelling.
             </p>
 
             <div class="hero-actions">
-              <a class="btn btn-primary" href="#projects">View Projects</a>
-              <a class="btn btn-secondary" href="#contact">Contact Me</a>
+              <a class="btn btn-primary" href="#projects">Explore Projects</a>
+              <a class="btn btn-secondary" href="#contact">Get In Touch</a>
             </div>
           </div>
 
-          <div class="hero-card">
-            <div class="eyebrow" style="margin-bottom:10px;">Focus Areas</div>
-            <div class="hero-metrics">
-              <div class="metric">
-                <div class="metric-number">IAM</div>
-                <div class="metric-label">Entra ID, Active Directory, access control, and SSO troubleshooting.</div>
+          <aside class="hero-panel">
+            <div class="profile-box">
+              <div class="profile-placeholder">Add your photo here</div>
+            </div>
+            <h3>What this site shows</h3>
+            <p style="color: var(--muted); line-height: 1.75; margin-top: 10px;">
+              This portfolio connects real enterprise support work from Acacia Network with ServiceNow-aligned process thinking, workflow structure, and implementation language.
+            </p>
+
+            <div class="quick-stats">
+              <div class="stat">
+                <strong>IAM</strong>
+                <span>Entra ID, AD, account lifecycle, and access troubleshooting.</span>
               </div>
-              <div class="metric">
-                <div class="metric-number">ITSM</div>
-                <div class="metric-label">ServiceNow-oriented process design, intake, routing, and operational structure.</div>
+              <div class="stat">
+                <strong>M365</strong>
+                <span>Exchange, mailbox permissions, mail flow, and admin support.</span>
               </div>
-              <div class="metric">
-                <div class="metric-number">M365</div>
-                <div class="metric-label">Exchange mail flow, shared resources, permissions, and admin support.</div>
+              <div class="stat">
+                <strong>ITSM</strong>
+                <span>ServiceNow-style intake, ownership, and process standardization.</span>
               </div>
-              <div class="metric">
-                <div class="metric-number">Ops</div>
-                <div class="metric-label">Hands-on troubleshooting across enterprise platforms and support workflows.</div>
+              <div class="stat">
+                <strong>Ops</strong>
+                <span>Hands-on enterprise support tied to real business operations.</span>
               </div>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
-      <div class="container section-inner">
-        <div class="eyebrow">About Me</div>
-        <h2>Technical, operational, and implementation-focused.</h2>
+      <div class="container">
+        <div class="eyebrow">About</div>
+        <h2>Technical enough for hiring managers. Clear enough for everyone else.</h2>
         <p class="section-copy">
-          I am an IT systems professional with hands-on experience supporting identity, messaging, endpoint, and infrastructure-related operations in enterprise environments. At Acacia Network, my work centers on practical systems administration and operational support. In parallel, I continue building ServiceNow capability through labs, portfolio projects, and process-driven implementations that reflect ITSM best practices.
+          I am an IT systems professional with hands-on experience in identity, messaging, access, and enterprise support operations. At Acacia Network, the environment is not built on ServiceNow, but I consistently frame work through ITSM principles like structured intake, prioritization, ownership, and process improvement. Alongside that work, I continue building a ServiceNow-centered portfolio through labs, workflow design, CMDB learning, and implementation-based projects.
         </p>
 
         <div class="grid grid-3">
-          <div class="card">
-            <h3>ServiceNow-Aligned Thinking</h3>
-            <p>
-              Even when the production environment is not using ServiceNow, I frame work through structured intake, assignment, ownership, standardization, and measurable service delivery.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Enterprise Admin Experience</h3>
-            <p>
-              My background includes Entra ID, on-prem Active Directory, Exchange Online, shared resource administration, access troubleshooting, and operational escalation support.
-            </p>
-          </div>
-
-          <div class="card">
-            <h3>Implementation Mindset</h3>
-            <p>
-              I focus on solving business problems with workflow logic, cleaner processes, stronger controls, and documentation that scales across teams.
-            </p>
-          </div>
+          <article class="card">
+            <h3>Operational Depth</h3>
+            <p>Real work across Entra ID, Active Directory, Exchange, access administration, and enterprise issue resolution.</p>
+          </article>
+          <article class="card">
+            <h3>ServiceNow Framing</h3>
+            <p>Translating admin work into workflow logic, ITSM language, structured service delivery, and implementation storytelling.</p>
+          </article>
+          <article class="card">
+            <h3>Business Process Thinking</h3>
+            <p>Focused on making support cleaner, more trackable, and more scalable through better design and clearer ownership.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <!-- EXPERIENCE -->
     <section id="experience">
-      <div class="container section-inner">
+      <div class="container">
         <div class="eyebrow">Experience</div>
-        <h2>Roles shaped by systems support, workflow logic, and implementation work.</h2>
+        <h2>Work that blends systems administration with workflow-driven thinking.</h2>
 
         <div class="timeline">
           <article class="exp-card">
             <div class="exp-top">
               <div>
                 <div class="job-title">IT Systems / Infrastructure Support • Acacia Network</div>
-                <div class="job-meta">
-                  Enterprise systems administration, access support, messaging operations, and identity-related troubleshooting.
-                </div>
+                <div class="job-meta">Enterprise administration, identity support, mail flow troubleshooting, and operational systems ownership.</div>
               </div>
-              <div class="pill">Current / Recent</div>
+              <div class="pill">Acacia Network</div>
             </div>
 
-            <p class="section-copy" style="margin-bottom: 0;">
-              Support day-to-day operational needs across identity, access, email, and administrative systems. Although Acacia Network does not use ServiceNow in production, I consistently approach work using ITSM-style structure around intake, ownership, escalation, and process improvement.
-            </p>
-
             <div class="exp-points">
-              <div class="point">Managed user lifecycle and access-related administration across Entra ID, Active Directory, shared resources, and Microsoft 365 services.</div>
-              <div class="point">Troubleshot mail flow, permissions, account issues, and operational requests impacting internal staff and business teams.</div>
-              <div class="point">Worked across enterprise tools such as InvGate, ManageEngine ADManager Plus, Exchange, Entra ID, CrowdStrike, and other admin platforms.</div>
-              <div class="point">Applied a ServiceNow-style mindset to operational work by organizing requests through structured service delivery and process-based resolution.</div>
+              <div class="point">Supported identity and access administration across Entra ID, on-prem Active Directory, shared resources, and Microsoft 365 services.</div>
+              <div class="point">Troubleshot mailbox delivery issues, permissions, shared access, and operational requests affecting end users and departments.</div>
+              <div class="point">Worked with platforms such as InvGate, ManageEngine ADManager Plus, Exchange, Entra ID, and security/admin tooling.</div>
+              <div class="point">Applied a ServiceNow-style mindset by organizing work through structured support, prioritization, ownership, and process consistency.</div>
             </div>
           </article>
 
@@ -690,22 +667,16 @@
             <div class="exp-top">
               <div>
                 <div class="job-title">Systems & Process Implementation • Bical Cadillac</div>
-                <div class="job-meta">
-                  ServiceNow-based business workflow implementation and CRM-connected operational redesign.
-                </div>
+                <div class="job-meta">Workflow modernization, cross-team routing, and CRM-connected process standardization.</div>
               </div>
-              <div class="pill">Implementation Project</div>
+              <div class="pill">ServiceNow-Aligned</div>
             </div>
 
-            <p class="section-copy" style="margin-bottom: 0;">
-              Helped move manual, disconnected business processes into a workflow-driven operating model. Designed structured intake paths and automated downstream task assignment across multiple departments.
-            </p>
-
             <div class="exp-points">
-              <div class="point">Mapped customer intake from CRM migration, online inquiries, and in-person walk-ins into a centralized workflow model.</div>
-              <div class="point">Created automated task routing for sales, management, DMV, and finance steps to support a cleaner handoff process.</div>
-              <div class="point">Integrated customer and process data with Salesforce CRM and operational workflows for better visibility and consistency.</div>
-              <div class="point">Used ServiceNow-oriented workflow thinking to standardize fulfillment, improve coordination, and reduce manual follow-up.</div>
+              <div class="point">Helped convert manual business operations into a structured workflow model with clearer task ownership and department handoffs.</div>
+              <div class="point">Mapped intake across migrated CRM data, online inquiries, and manual walk-ins into a centralized customer workflow path.</div>
+              <div class="point">Designed task routing logic across sales, management, DMV, and finance to improve coordination from inquiry to delivery.</div>
+              <div class="point">Used ServiceNow-oriented workflow thinking to standardize fulfillment activity and reduce process fragmentation.</div>
             </div>
           </article>
 
@@ -713,301 +684,173 @@
             <div class="exp-top">
               <div>
                 <div class="job-title">IT Systems Administration • Verizon</div>
-                <div class="job-meta">
-                  Enterprise support operations with exposure to AYS and ServiceNow-related transition work.
-                </div>
+                <div class="job-meta">Enterprise support operations with exposure to platform-driven service management processes.</div>
               </div>
               <div class="pill">Enterprise Support</div>
             </div>
 
-            <p class="section-copy" style="margin-bottom: 0;">
-              Supported operational IT processes in a large-scale environment and gained exposure to structured platform and service management practices during transition-related work involving ServiceNow.
-            </p>
-
             <div class="exp-points">
-              <div class="point">Supported enterprise IT administration and service operations within a structured support environment.</div>
-              <div class="point">Worked with platform-driven service processes and gained practical understanding of how standardized ticketing and support operations scale.</div>
-              <div class="point">Built experience around enterprise systems coordination, issue handling, and service ownership expectations.</div>
-              <div class="point">Strengthened the foundation that now supports my ServiceNow-focused growth in ITSM and implementation work.</div>
+              <div class="point">Supported enterprise IT operations in a structured environment where consistency, urgency, and service ownership mattered.</div>
+              <div class="point">Built experience around standardized support processes and the expectations of scalable ticket-driven operations.</div>
+              <div class="point">Gained exposure to platform transition work involving ServiceNow-related service management concepts.</div>
+              <div class="point">Strengthened the enterprise support foundation that now informs my ServiceNow and implementation growth path.</div>
             </div>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
     <section id="projects">
-      <div class="container section-inner">
+      <div class="container">
         <div class="eyebrow">Projects</div>
-        <h2>Portfolio-ready work tied to real operations.</h2>
+        <h2>Resume-ready projects built from real work and portfolio thinking.</h2>
         <p class="section-copy">
-          These projects reflect a mix of real-world systems administration and ServiceNow-style implementation thinking. Where work was completed at Acacia Network, the focus is on practical enterprise operations. Where ServiceNow was used directly, the focus is on workflow design and process automation.
+          These project summaries are written to show impact, tooling, and implementation logic. For Acacia Network, they reflect real enterprise systems work. For ServiceNow-aligned items, they show how I think in workflows, service models, and platform-ready structure.
         </p>
 
-        <div class="desktop-grid-projects grid grid-3">
+        <div class="desktop-only projects-grid">
           <article class="project-card">
             <h3>Identity & Access Administration Operations</h3>
-            <p>
-              Supported account administration, permission changes, and access troubleshooting across Entra ID, on-prem Active Directory, shared resources, and Microsoft 365.
-            </p>
-            <div class="tags">
-              <span class="tag">Acacia Network</span>
-              <span class="tag">Entra ID</span>
-              <span class="tag">AD</span>
-              <span class="tag">IAM</span>
-            </div>
+            <p>Managed and supported user access, account changes, and identity-related troubleshooting across Entra ID, on-prem AD, Microsoft 365, and shared resources.</p>
+            <div class="tags"><span class="tag">Acacia Network</span><span class="tag">Entra ID</span><span class="tag">AD</span><span class="tag">IAM</span></div>
           </article>
 
           <article class="project-card">
-            <h3>Email Flow & Exchange Troubleshooting</h3>
-            <p>
-              Investigated mailbox delivery issues, distribution behavior, relay concerns, permissions, and messaging-related support requests in a production environment.
-            </p>
-            <div class="tags">
-              <span class="tag">Acacia Network</span>
-              <span class="tag">Exchange</span>
-              <span class="tag">Mail Flow</span>
-              <span class="tag">M365</span>
-            </div>
+            <h3>Exchange Mail Flow & Delivery Support</h3>
+            <p>Investigated mailbox delivery gaps, sender/domain issues, permissions, and distribution behavior to restore reliable communication paths.</p>
+            <div class="tags"><span class="tag">Acacia Network</span><span class="tag">Exchange</span><span class="tag">Mail Flow</span><span class="tag">M365</span></div>
           </article>
 
           <article class="project-card">
-            <h3>Service Delivery Framing for Non-ServiceNow Ops</h3>
-            <p>
-              Applied ITSM logic to daily operations by organizing support work around intake, ownership, prioritization, escalation, and resolution even outside a ServiceNow platform.
-            </p>
-            <div class="tags">
-              <span class="tag">Acacia Network</span>
-              <span class="tag">ITSM Mindset</span>
-              <span class="tag">Operations</span>
-            </div>
+            <h3>ITSM Framing for Non-ServiceNow Operations</h3>
+            <p>Applied service management structure to day-to-day support by emphasizing intake quality, ownership, prioritization, escalation, and repeatable handling.</p>
+            <div class="tags"><span class="tag">ITSM</span><span class="tag">Acacia Network</span><span class="tag">Operations</span></div>
           </article>
 
           <article class="project-card">
             <h3>Customer Workflow Automation Model</h3>
-            <p>
-              Built a process model that routed customer records and post-sale activities across sales, management, DMV, and finance teams using workflow-based logic.
-            </p>
-            <div class="tags">
-              <span class="tag">ServiceNow Style</span>
-              <span class="tag">Workflow</span>
-              <span class="tag">Routing</span>
-            </div>
+            <p>Created a process design that coordinated customer-related tasks across sales, management, DMV, and finance teams through workflow logic.</p>
+            <div class="tags"><span class="tag">Workflow</span><span class="tag">Automation</span><span class="tag">Routing</span></div>
           </article>
 
           <article class="project-card">
-            <h3>CRM-Integrated Operational Intake</h3>
-            <p>
-              Structured multiple intake channels into one standardized path, improving visibility and reducing process fragmentation across teams.
-            </p>
-            <div class="tags">
-              <span class="tag">Salesforce CRM</span>
-              <span class="tag">Data Intake</span>
-              <span class="tag">Process Design</span>
-            </div>
+            <h3>CRM-Integrated Intake Standardization</h3>
+            <p>Unified multiple intake sources into a single structured path, improving visibility and reducing fragmentation across operational teams.</p>
+            <div class="tags"><span class="tag">Salesforce CRM</span><span class="tag">Process Design</span><span class="tag">Data Intake</span></div>
           </article>
 
           <article class="project-card">
-            <h3>ServiceNow Learning Lab Portfolio</h3>
-            <p>
-              Continued building ServiceNow portfolio depth through CMDB, integration, automation, and implementation-oriented labs tied back to real enterprise admin work.
-            </p>
-            <div class="tags">
-              <span class="tag">CMDB</span>
-              <span class="tag">REST</span>
-              <span class="tag">Now Learn</span>
-              <span class="tag">Portfolio</span>
-            </div>
+            <h3>ServiceNow Learning Portfolio Buildout</h3>
+            <p>Built hands-on portfolio depth through CMDB, REST integration labs, automation concepts, and implementation-focused ServiceNow learning.</p>
+            <div class="tags"><span class="tag">CMDB</span><span class="tag">REST</span><span class="tag">Now Learn</span><span class="tag">Portfolio</span></div>
           </article>
         </div>
 
-        <div class="mobile-scroll-projects mobile-only">
+        <div class="mobile-only">
           <div class="scroll-row">
             <article class="project-card">
               <h3>Identity & Access Administration Operations</h3>
-              <p>
-                Supported account administration, permission changes, and access troubleshooting across Entra ID, on-prem Active Directory, shared resources, and Microsoft 365.
-              </p>
-              <div class="tags">
-                <span class="tag">Acacia Network</span>
-                <span class="tag">Entra ID</span>
-                <span class="tag">IAM</span>
-              </div>
+              <p>Supported user access, account lifecycle activity, and identity troubleshooting across enterprise systems.</p>
+              <div class="tags"><span class="tag">Acacia</span><span class="tag">IAM</span></div>
             </article>
-
             <article class="project-card">
-              <h3>Email Flow & Exchange Troubleshooting</h3>
-              <p>
-                Investigated mailbox delivery issues, distribution behavior, relay concerns, permissions, and messaging-related support requests in production.
-              </p>
-              <div class="tags">
-                <span class="tag">Exchange</span>
-                <span class="tag">Mail Flow</span>
-                <span class="tag">M365</span>
-              </div>
+              <h3>Exchange Mail Flow & Delivery Support</h3>
+              <p>Worked through mailbox delivery issues, permissions, and sender/domain-related messaging problems.</p>
+              <div class="tags"><span class="tag">Exchange</span><span class="tag">M365</span></div>
             </article>
-
             <article class="project-card">
-              <h3>Service Delivery Framing for Non-ServiceNow Ops</h3>
-              <p>
-                Applied ITSM logic to operational support by structuring work around intake, ownership, prioritization, and resolution.
-              </p>
-              <div class="tags">
-                <span class="tag">ITSM</span>
-                <span class="tag">Operations</span>
-                <span class="tag">Acacia</span>
-              </div>
+              <h3>ITSM Framing for Non-ServiceNow Operations</h3>
+              <p>Applied structured service delivery thinking to real operational support work at Acacia Network.</p>
+              <div class="tags"><span class="tag">ITSM</span><span class="tag">Ops</span></div>
             </article>
-
             <article class="project-card">
               <h3>Customer Workflow Automation Model</h3>
-              <p>
-                Built a cross-functional workflow design supporting customer processing and post-sale task coordination across business teams.
-              </p>
-              <div class="tags">
-                <span class="tag">Workflow</span>
-                <span class="tag">Automation</span>
-                <span class="tag">Process</span>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <h3>ServiceNow Learning Lab Portfolio</h3>
-              <p>
-                Expanded hands-on portfolio work through CMDB, integrations, REST concepts, and implementation-focused learning tied back to enterprise support.
-              </p>
-              <div class="tags">
-                <span class="tag">CMDB</span>
-                <span class="tag">REST</span>
-                <span class="tag">Now Learn</span>
-              </div>
+              <p>Built process logic for routing business tasks across teams from intake through delivery.</p>
+              <div class="tags"><span class="tag">Workflow</span><span class="tag">Routing</span></div>
             </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SKILLS -->
     <section id="skills">
-      <div class="container section-inner">
-        <div class="eyebrow">Technical Skills</div>
-        <h2>Core tools, platforms, and strengths.</h2>
+      <div class="container">
+        <div class="eyebrow">Skills</div>
+        <h2>Tools and strengths that connect operations to implementation.</h2>
 
-        <div class="desktop-grid-skills grid grid-3">
-          <article class="skill-card">
-            <h3>Identity & Access</h3>
-            <p>Entra ID, Active Directory, account administration, permissions, authentication support, and access troubleshooting.</p>
+        <div class="skills-wrap">
+          <article class="card">
+            <h3>Core Focus</h3>
+            <p>
+              My strongest value sits at the intersection of systems administration, enterprise support, and ServiceNow-style process thinking. That is what ties the Acacia Network work to the portfolio story.
+            </p>
           </article>
 
-          <article class="skill-card">
-            <h3>Messaging & M365</h3>
-            <p>Exchange Online, mailbox management, distribution groups, shared access, mail flow troubleshooting, and admin support.</p>
-          </article>
+          <div class="skills-list desktop-only">
+            <div class="skill-line"><span>Identity & Access</span><span>Entra ID, AD, user lifecycle, permissions</span></div>
+            <div class="skill-line"><span>Messaging & M365</span><span>Exchange Online, mail flow, shared access</span></div>
+            <div class="skill-line"><span>ServiceNow Concepts</span><span>ITSM, workflow logic, CMDB fundamentals</span></div>
+            <div class="skill-line"><span>Admin Platforms</span><span>InvGate, ADManager Plus, M365 consoles</span></div>
+            <div class="skill-line"><span>Operations</span><span>Troubleshooting, escalation, documentation</span></div>
+            <div class="skill-line"><span>Workflow Thinking</span><span>Intake, routing, standardization, process design</span></div>
+          </div>
 
-          <article class="skill-card">
-            <h3>ServiceNow Concepts</h3>
-            <p>ITSM foundations, workflow logic, CMDB fundamentals, request structure, service delivery thinking, and implementation framing.</p>
-          </article>
-
-          <article class="skill-card">
-            <h3>Admin Platforms</h3>
-            <p>InvGate, ManageEngine ADManager Plus, Microsoft 365 admin tools, endpoint/security administration exposure, and enterprise consoles.</p>
-          </article>
-
-          <article class="skill-card">
-            <h3>Process & Operations</h3>
-            <p>Operational documentation, structured troubleshooting, prioritization, escalation handling, and cross-team service coordination.</p>
-          </article>
-
-          <article class="skill-card">
-            <h3>Integrations & Workflow Thinking</h3>
-            <p>REST/API learning, process mapping, intake standardization, task routing, and implementation-focused problem solving.</p>
-          </article>
-        </div>
-
-        <div class="mobile-scroll-skills mobile-only">
-          <div class="scroll-row">
-            <article class="skill-card">
-              <h3>Identity & Access</h3>
-              <p>Entra ID, Active Directory, account administration, permissions, authentication support, and access troubleshooting.</p>
-            </article>
-
-            <article class="skill-card">
-              <h3>Messaging & M365</h3>
-              <p>Exchange Online, mailbox management, shared access, distribution groups, and mail flow troubleshooting.</p>
-            </article>
-
-            <article class="skill-card">
-              <h3>ServiceNow Concepts</h3>
-              <p>ITSM foundations, workflow logic, CMDB fundamentals, request structure, and implementation framing.</p>
-            </article>
-
-            <article class="skill-card">
-              <h3>Admin Platforms</h3>
-              <p>InvGate, ManageEngine ADManager Plus, Microsoft 365 admin tooling, and enterprise support consoles.</p>
-            </article>
-
-            <article class="skill-card">
-              <h3>Process & Operations</h3>
-              <p>Documentation, structured troubleshooting, prioritization, escalation, and service coordination.</p>
-            </article>
-
-            <article class="skill-card">
-              <h3>Workflow Thinking</h3>
-              <p>REST/API learning, process mapping, intake standardization, and routing-focused solution design.</p>
-            </article>
+          <div class="mobile-only">
+            <div class="scroll-row">
+              <article class="card"><h3>Identity & Access</h3><p>Entra ID, AD, user lifecycle, permissions, and authentication support.</p></article>
+              <article class="card"><h3>Messaging & M365</h3><p>Exchange Online, mailbox permissions, distribution behavior, and mail flow support.</p></article>
+              <article class="card"><h3>ServiceNow Concepts</h3><p>ITSM, workflow logic, CMDB foundations, and implementation framing.</p></article>
+              <article class="card"><h3>Admin Platforms</h3><p>InvGate, ADManager Plus, Microsoft 365 administration, and enterprise consoles.</p></article>
+              <article class="card"><h3>Operations</h3><p>Prioritization, structured troubleshooting, documentation, and escalation handling.</p></article>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
-      <div class="container section-inner">
+      <div class="container">
         <div class="eyebrow">Contact</div>
-        <h2>Let’s connect.</h2>
+        <h2>Built to be updated in one place.</h2>
 
         <div class="contact-wrap">
-          <div class="card contact-card">
-            <p class="section-copy" style="margin-bottom: 0;">
-              I am building a portfolio that connects real enterprise systems work with a ServiceNow implementation path. This site is designed to present both sides clearly: operational admin experience from Acacia Network and process/workflow thinking aligned to ITSM.
+          <article class="card">
+            <p class="section-copy" style="margin-bottom:0;">
+              This version gives you a stronger visual layout, cleaner mobile behavior, and clearer positioning. Replace the placeholder image area, your links, and any wording you want to tighten once, and this becomes your main website base.
             </p>
-
             <div class="contact-links">
               <a class="contact-link" href="mailto:qkazmi@qalbekazmi.com">qkazmi@qalbekazmi.com</a>
               <a class="contact-link" href="https://www.linkedin.com/in/qalbekazmi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
               <a class="contact-link" href="https://qalbekazmi.com" target="_blank" rel="noopener noreferrer">qalbekazmi.com</a>
             </div>
-          </div>
+          </article>
 
-          <div class="card contact-card">
-            <h3 style="margin-bottom:12px;">Quick Summary</h3>
+          <article class="card">
+            <h3>Current Positioning</h3>
             <p>
-              Enterprise systems administrator with hands-on experience in identity, access, messaging, and operational support, paired with a growing ServiceNow portfolio focused on workflow automation, CMDB, and implementation-oriented process design.
+              Enterprise systems administrator with hands-on Acacia Network experience in identity, access, email, and support operations, paired with a ServiceNow portfolio focused on workflow design, CMDB learning, and implementation-oriented process improvement.
             </p>
             <div class="tags">
               <span class="tag">Acacia Network</span>
               <span class="tag">ServiceNow Portfolio</span>
               <span class="tag">IAM</span>
               <span class="tag">M365</span>
-              <span class="tag">Operations</span>
             </div>
-          </div>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      © 2026 Qalbe Kazmi. Built to reflect enterprise systems work and ServiceNow-aligned portfolio growth.
-    </div>
+    <div class="container">© 2026 Qalbe Kazmi. Enterprise systems work presented with a ServiceNow-aligned portfolio lens.</div>
   </footer>
 
   <script>
-    // Hide header on scroll down, show on scroll up
     (function () {
-      const header = document.getElementById("siteHeader");
+      const header = document.getElementById('siteHeader');
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
       let lastScrollY = window.scrollY;
       let ticking = false;
 
@@ -1015,31 +858,39 @@
         const currentScrollY = window.scrollY;
 
         if (currentScrollY <= 8) {
-          header.classList.remove("hide");
+          header.classList.remove('hide');
         } else if (currentScrollY > lastScrollY + 6) {
-          header.classList.add("hide");
+          header.classList.add('hide');
+          mobileMenu.classList.remove('open');
         } else if (currentScrollY < lastScrollY - 6) {
-          header.classList.remove("hide");
+          header.classList.remove('hide');
         }
 
         lastScrollY = currentScrollY;
         ticking = false;
       }
 
-      window.addEventListener("scroll", function () {
+      window.addEventListener('scroll', function () {
         if (!ticking) {
           window.requestAnimationFrame(updateHeader);
           ticking = true;
         }
       });
-    })();
 
-    // Close gap feeling for anchor jump with fixed header
-    document.querySelectorAll('.nav a').forEach(link => {
-      link.addEventListener('click', function () {
-        document.getElementById('siteHeader').classList.remove('hide');
+      if (menuBtn) {
+        menuBtn.addEventListener('click', function () {
+          mobileMenu.classList.toggle('open');
+          header.classList.remove('hide');
+        });
+      }
+
+      document.querySelectorAll('.mobile-menu a, .desktop-nav a').forEach(link => {
+        link.addEventListener('click', function () {
+          mobileMenu.classList.remove('open');
+          header.classList.remove('hide');
+        });
       });
-    });
+    })();
   </script>
 </body>
 </html>
