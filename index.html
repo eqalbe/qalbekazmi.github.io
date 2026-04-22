@@ -16,15 +16,21 @@
       --muted: #b8c0d0;
       --accent: #7bb0ff;
       --accent-2: #9c8dff;
-      --success: #89e5b4;
       --shadow: 0 20px 40px rgba(0,0,0,0.28);
       --radius: 24px;
       --max: 1180px;
       --header-h: 74px;
     }
 
-    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
@@ -38,8 +44,15 @@
       max-width: 100%;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
     .container {
       width: min(100% - 28px, var(--max));
@@ -59,7 +72,9 @@
       transition: transform 0.32s ease, background 0.2s ease;
     }
 
-    .site-header.hide { transform: translateY(-100%); }
+    .site-header.hide {
+      transform: translateY(-100%);
+    }
 
     .header-inner {
       width: min(100% - 28px, var(--max));
@@ -71,12 +86,16 @@
       gap: 16px;
     }
 
-    .brand { min-width: 0; }
+    .brand {
+      min-width: 0;
+    }
+
     .brand-name {
       font-size: 1rem;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
+
     .brand-role {
       margin-top: 4px;
       color: var(--muted);
@@ -97,7 +116,10 @@
       font-size: 0.93rem;
       transition: color 0.2s ease;
     }
-    .desktop-nav a:hover { color: var(--text); }
+
+    .desktop-nav a:hover {
+      color: var(--text);
+    }
 
     .menu-btn {
       display: none;
@@ -121,7 +143,11 @@
       box-shadow: var(--shadow);
     }
 
-    .mobile-menu.open { display: grid; gap: 8px; }
+    .mobile-menu.open {
+      display: grid;
+      gap: 8px;
+    }
+
     .mobile-menu a {
       padding: 14px;
       border-radius: 14px;
@@ -153,19 +179,24 @@
       background: linear-gradient(90deg, var(--accent), transparent);
     }
 
-    h1, h2, h3, p { margin: 0; }
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
     h1 {
       font-size: clamp(2.6rem, 7.4vw, 5.8rem);
       line-height: 0.94;
       letter-spacing: -0.05em;
       margin-bottom: 18px;
     }
+
     h2 {
       font-size: clamp(1.9rem, 4vw, 3.1rem);
       line-height: 1;
       letter-spacing: -0.04em;
       margin-bottom: 16px;
     }
+
     h3 {
       font-size: 1.06rem;
       line-height: 1.3;
@@ -231,11 +262,15 @@
       transition: transform 0.18s ease, opacity 0.18s ease;
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
     .btn-primary {
       background: linear-gradient(135deg, var(--accent), var(--accent-2));
       color: #06101d;
     }
+
     .btn-secondary {
       background: rgba(255,255,255,0.04);
       border: 1px solid var(--border);
@@ -281,20 +316,6 @@
       object-fit: cover;
     }
 
-    .profile-placeholder {
-      width: 100%;
-      height: 100%;
-      display: grid;
-      place-items: center;
-      color: rgba(255,255,255,0.55);
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      background:
-        radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 34%),
-        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
-    }
-
     .quick-stats {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -321,7 +342,11 @@
       line-height: 1.5;
     }
 
-    .grid { display: grid; gap: 18px; }
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
     .grid > *,
     .hero-grid > *,
     .skills-wrap > *,
@@ -329,8 +354,14 @@
     .exp-points > * {
       min-width: 0;
     }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
 
     .card {
       background: var(--surface);
@@ -369,8 +400,17 @@
       margin-bottom: 14px;
     }
 
-    .job-title { font-size: 1.12rem; font-weight: 800; }
-    .job-meta { color: var(--muted); font-size: 0.92rem; margin-top: 6px; line-height: 1.6; }
+    .job-title {
+      font-size: 1.12rem;
+      font-weight: 800;
+    }
+
+    .job-meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-top: 6px;
+      line-height: 1.6;
+    }
 
     .pill {
       padding: 8px 12px;
@@ -438,22 +478,6 @@
       font-size: 0.96rem;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .tag {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      color: var(--muted);
-      font-size: 0.83rem;
-    }
-
     .skills-wrap {
       display: grid;
       gap: 18px;
@@ -493,12 +517,6 @@
       line-height: 1.5;
     }
 
-    .skill-line span:last-child {
-      color: var(--muted);
-      text-align: right;
-      font-size: 0.9rem;
-    }
-
     .scroll-row {
       display: grid;
       grid-auto-flow: column;
@@ -513,7 +531,10 @@
       -webkit-overflow-scrolling: touch;
       scroll-behavior: smooth;
     }
-    .scroll-row::-webkit-scrollbar { display: none; }
+
+    .scroll-row::-webkit-scrollbar {
+      display: none;
+    }
 
     .carousel-wrap {
       position: relative;
@@ -611,36 +632,7 @@
       font-size: 0.9rem;
     }
 
-    .mobile-only { display: none; }
-
-    @media (max-width: 980px) {
-      .hero-grid,
-      .contact-wrap,
-      .skills-wrap,
-      .grid-3,
-      .grid-2,
-      .projects-grid,
-      .exp-points { grid-template-columns: 1fr; }
-
-      .desktop-nav { display: none; }
-      .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
-      .mobile-only { display: block; }
-      .desktop-only { display: none; }
-
-      section { padding: 100px 0 44px; }
-      .hero { min-height: auto; }
-    }
-
-    @media (max-width: 720px) {
-      :root { --header-h: 68px; }
-      .container, .header-inner { width: min(100% - 20px, var(--max)); }
-      .brand-role { display: none; }
-      .card, .exp-card, .project-card, .hero-panel { padding: 18px; }
-      .hero-kicker { font-size: 0.82rem; }
-      .btn { min-height: 46px; font-size: 0.92rem; }
-      .scroll-row { grid-auto-columns: calc(100vw - 32px); }
-    }
-  #scrollTopBtn {
+    #scrollTopBtn {
       position: fixed;
       right: 18px;
       bottom: 18px;
@@ -672,7 +664,86 @@
       background: rgba(123,176,255,0.12);
     }
 
-</style>
+    .mobile-only {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .contact-wrap,
+      .grid-3,
+      .grid-2,
+      .projects-grid,
+      .exp-points {
+        grid-template-columns: 1fr;
+      }
+
+      .desktop-nav {
+        display: none;
+      }
+
+      .menu-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-only {
+        display: block;
+      }
+
+      .desktop-only {
+        display: none;
+      }
+
+      section {
+        padding: 100px 0 44px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --header-h: 68px;
+      }
+
+      .container,
+      .header-inner {
+        width: min(100% - 20px, var(--max));
+      }
+
+      .brand-role {
+        display: none;
+      }
+
+      .card,
+      .exp-card,
+      .project-card,
+      .hero-panel {
+        padding: 18px;
+      }
+
+      .hero-kicker {
+        font-size: 0.82rem;
+      }
+
+      .btn {
+        min-height: 46px;
+        font-size: 0.92rem;
+      }
+
+      .scroll-row {
+        grid-auto-columns: calc(100vw - 32px);
+      }
+
+      .quick-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -710,7 +781,7 @@
             <div class="hero-kicker">Enterprise Systems • Identity • ITSM</div>
             <h1>Enterprise systems administration with ITSM alignment.</h1>
             <p class="lead">
-              IT Systems and IAM specialist supporting identity, messaging, and infrastructure at Acacia Network, with a focus on applying ITSM practices and ServiceNow-aligned workflows.
+              Enterprise Systems Administrator focused on identity, messaging, and ITSM-aligned service delivery, with hands-on experience in ServiceNow administration and integrations.
             </p>
 
             <div class="hero-actions">
@@ -725,7 +796,7 @@
             </div>
             <h3>Overview</h3>
             <p style="color: var(--muted); line-height: 1.75; margin-top: 10px;">
-              Work reflects enterprise support across identity, messaging, and operations, structured using ITSM practices and ServiceNow-aligned implementation patterns.
+              Enterprise systems administration across identity, messaging, and operations, with a focus on ITSM workflows, ServiceNow administration, and system integrations.
             </p>
 
             <div class="quick-stats">
@@ -791,23 +862,23 @@
     <section id="about">
       <div class="container">
         <div class="eyebrow">About</div>
-        <h2>Enterprise systems administration with a focus on process and delivery.</h2>
+        <h2>Enterprise systems administration across identity, messaging, and service operations.</h2>
         <p class="section-copy">
-          I am an IT systems professional with hands-on experience in identity, messaging, access, and enterprise support operations. At Acacia Network, the environment is not built on ServiceNow, but I consistently frame work through ITSM principles like structured intake, prioritization, ownership, and process improvement. Alongside that work, I continue building a ServiceNow-centered portfolio through labs, workflow design, CMDB learning, and implementation-based projects.
+          IT systems administration experience across identity, messaging, access, and enterprise support operations. Current work at Acacia Network centers on enterprise systems support, while ServiceNow development focuses on ITSM workflows, CMDB, integrations, and process automation.
         </p>
 
         <div class="grid grid-3">
           <article class="card">
             <h3>Operational Depth</h3>
-            <p>Real work across Entra ID, Active Directory, Exchange, access administration, and enterprise issue resolution.</p>
+            <p>Enterprise support across Entra ID, Active Directory, Exchange, access administration, and operational issue resolution.</p>
           </article>
           <article class="card">
-            <h3>ServiceNow Framing</h3>
-            <p>Translating admin work into workflow logic, ITSM language, structured service delivery, and implementation storytelling.</p>
+            <h3>ServiceNow Administration</h3>
+            <p>ServiceNow administration, ITSM workflows, CMDB concepts, integrations, and process standardization.</p>
           </article>
           <article class="card">
-            <h3>Business Process Thinking</h3>
-            <p>Focused on making support cleaner, more trackable, and more scalable through better design and clearer ownership.</p>
+            <h3>Process Design</h3>
+            <p>Process design focused on standardization, ownership, routing, and operational consistency.</p>
           </article>
         </div>
       </div>
@@ -816,7 +887,7 @@
     <section id="experience">
       <div class="container">
         <div class="eyebrow">Experience</div>
-        <h2>Experience across enterprise systems, identity, and service operations.</h2>
+        <h2>Experience across enterprise systems, identity, and ITSM-aligned operations.</h2>
 
         <div class="timeline">
           <article class="exp-card">
@@ -832,7 +903,7 @@
               <div class="point">Supported identity and access administration across Entra ID, on-prem Active Directory, shared resources, and Microsoft 365 services.</div>
               <div class="point">Troubleshot mailbox delivery issues, permissions, shared access, and operational requests affecting end users and departments.</div>
               <div class="point">Worked with platforms such as InvGate, ManageEngine ADManager Plus, Exchange, Entra ID, and security/admin tooling.</div>
-              <div class="point">Applied a ServiceNow-style mindset by organizing work through structured support, prioritization, ownership, and process consistency.</div>
+              <div class="point">Applied ITSM practices through structured support, prioritization, ownership, and process consistency.</div>
             </div>
           </article>
 
@@ -846,10 +917,10 @@
             </div>
 
             <div class="exp-points">
-              <div class="point">Helped convert manual business operations into a structured workflow model with clearer task ownership and department handoffs.</div>
+              <div class="point">Converted manual business operations into a structured workflow model with clearer task ownership and department handoffs.</div>
               <div class="point">Mapped intake across migrated CRM data, online inquiries, and manual walk-ins into a centralized customer workflow path.</div>
               <div class="point">Designed task routing logic across sales, management, DMV, and finance to improve coordination from inquiry to delivery.</div>
-              <div class="point">Used ServiceNow-oriented workflow thinking to standardize fulfillment activity and reduce process fragmentation.</div>
+              <div class="point">Standardized fulfillment activity and reduced process fragmentation across teams.</div>
             </div>
           </article>
 
@@ -864,9 +935,9 @@
 
             <div class="exp-points">
               <div class="point">Supported enterprise IT operations in a structured environment where consistency, urgency, and service ownership mattered.</div>
-              <div class="point">Built experience around standardized support processes and the expectations of scalable ticket-driven operations.</div>
+              <div class="point">Built experience around standardized support processes and scalable ticket-driven operations.</div>
               <div class="point">Gained exposure to platform transition work involving ServiceNow-related service management concepts.</div>
-              <div class="point">Strengthened the enterprise support foundation that now informs my ServiceNow and implementation growth path.</div>
+              <div class="point">Built the foundation for current ServiceNow and enterprise systems work.</div>
             </div>
           </article>
         </div>
@@ -876,13 +947,12 @@
     <section id="projects">
       <div class="container">
         <div class="eyebrow">Projects</div>
-        <h2>Projects based on real-world work, structured for enterprise implementation.</h2>
+        <h2>Projects based on enterprise systems work, focused on ITSM implementation.</h2>
         <p class="section-copy">
-          Projects reflect real operational scenarios, structured using ITSM practices, integrations, and workflow-based implementation.
+          Projects based on enterprise systems work, focused on ITSM processes, integrations, and automation.
         </p>
 
         <div class="desktop-only projects-grid">
-
           <article class="project-card">
             <h3>Identity Lifecycle Automation</h3>
             <p><strong>Problem:</strong> Inconsistent onboarding/offboarding without approvals or standard steps.<br>
@@ -952,7 +1022,6 @@
             <strong>Solution:</strong> Built inbound/outbound REST integrations. Configured auth and data mapping for sync.<br>
             <strong>Tools:</strong> ServiceNow, REST APIs, Microsoft Graph API</p>
           </article>
-
         </div>
 
         <div class="mobile-only">
@@ -966,42 +1035,32 @@
               </button>
             </div>
             <div class="scroll-row" data-carousel-track>
-
-            <article class="project-card"><h3>Identity Lifecycle Automation</h3><p>Standardized onboarding/offboarding with automated provisioning and access removal. (ServiceNow, ADManager Plus, AD, Entra, M365)</p></article>
-
-            <article class="project-card"><h3>ITSM Process Implementation</h3><p>Defined incident/request workflows, assignment groups, and escalation paths. (ServiceNow, InvGate, AD)</p></article>
-
-            <article class="project-card"><h3>User Provisioning Integration</h3><p>Integrated ServiceNow with Entra using REST, Import Sets, and Transform Maps. (ServiceNow, Graph API)</p></article>
-
-            <article class="project-card"><h3>SSO & Authentication</h3><p>Configured SSO and resolved OAuth/token issues. (ServiceNow, Entra ID)</p></article>
-
-            <article class="project-card"><h3>Workflow Automation</h3><p>Automated provisioning/deprovisioning with task sequencing. (ServiceNow, ADManager Plus)</p></article>
-
-            <article class="project-card"><h3>Incident Reassignment</h3><p>Reassigned tickets from inactive users to maintain ownership. (ServiceNow)</p></article>
-
-            <article class="project-card"><h3>CMDB & Service Mapping</h3><p>Defined relationships between users, groups, and applications. (ServiceNow, AD)</p></article>
-
-            <article class="project-card"><h3>Access Governance</h3><p>Implemented group-based RBAC and standardized access control. (ServiceNow, AD)</p></article>
-
-            <article class="project-card"><h3>Reporting</h3><p>Built reports for lifecycle, licensing, and security metrics. (ServiceNow, M365)</p></article>
-
-            <article class="project-card"><h3>REST Integrations</h3><p>Built API integrations for automated data sync. (ServiceNow, Graph API)</p></article>
-
+              <article class="project-card"><h3>Identity Lifecycle Automation</h3><p>Standardized onboarding/offboarding with automated provisioning and access removal. (ServiceNow, ADManager Plus, AD, Entra, M365)</p></article>
+              <article class="project-card"><h3>ITSM Process Implementation</h3><p>Defined incident/request workflows, assignment groups, and escalation paths. (ServiceNow, InvGate, AD)</p></article>
+              <article class="project-card"><h3>User Provisioning Integration</h3><p>Integrated ServiceNow with Entra using REST, Import Sets, and Transform Maps. (ServiceNow, Graph API)</p></article>
+              <article class="project-card"><h3>SSO & Authentication</h3><p>Configured SSO and resolved OAuth/token issues. (ServiceNow, Entra ID)</p></article>
+              <article class="project-card"><h3>Workflow Automation</h3><p>Automated provisioning/deprovisioning with task sequencing. (ServiceNow, ADManager Plus)</p></article>
+              <article class="project-card"><h3>Incident Reassignment</h3><p>Reassigned tickets from inactive users to maintain ownership. (ServiceNow)</p></article>
+              <article class="project-card"><h3>CMDB & Service Mapping</h3><p>Defined relationships between users, groups, and applications. (ServiceNow, AD)</p></article>
+              <article class="project-card"><h3>Access Governance</h3><p>Implemented group-based RBAC and standardized access control. (ServiceNow, AD)</p></article>
+              <article class="project-card"><h3>Reporting</h3><p>Built reports for lifecycle, licensing, and security metrics. (ServiceNow, M365)</p></article>
+              <article class="project-card"><h3>REST Integrations</h3><p>Built API integrations for automated data sync. (ServiceNow, Graph API)</p></article>
+            </div>
           </div>
         </div>
-        </div>
-      </section>
+      </div>
+    </section>
 
     <section id="skills">
       <div class="container">
         <div class="eyebrow">Skills</div>
-        <h2>Core capabilities across identity, messaging, security, and ITSM.</h2>
+        <h2>Technical capabilities across enterprise systems and ITSM.</h2>
 
         <div class="skills-wrap">
           <article class="card" style="padding:18px 20px;">
             <h3 style="margin-bottom:8px;">Core Focus</h3>
             <p style="font-size:0.92rem; line-height:1.6; margin-top:0;">
-              Systems administration, enterprise support, and ServiceNow-aligned process thinking across identity, messaging, security, and operations.
+              Systems administration, identity management, and ITSM-driven service delivery across enterprise environments.
             </p>
           </article>
 
@@ -1010,27 +1069,22 @@
               <span>Identity & Access</span>
               <span>Entra ID, Active Directory, lifecycle management, permissions</span>
             </div>
-
             <div class="skill-line">
               <span>Messaging & M365</span>
               <span>Exchange Online, mail flow, shared mailboxes, permissions</span>
             </div>
-
             <div class="skill-line">
               <span>ServiceNow</span>
               <span>Administration, ITSM workflows, CMDB, user provisioning, integrations</span>
             </div>
-
             <div class="skill-line">
               <span>Security</span>
               <span>Defender, CrowdStrike, email security, identity protection</span>
             </div>
-
             <div class="skill-line">
               <span>Admin Platforms</span>
               <span>InvGate, ADManager Plus, M365 admin centers</span>
             </div>
-
             <div class="skill-line">
               <span>Operations</span>
               <span>Troubleshooting, escalation, documentation, ownership</span>
@@ -1069,7 +1123,7 @@
         <div class="contact-wrap">
           <article class="card">
             <p class="section-copy" style="margin-bottom:0;">
-              Reach out for opportunities related to IT systems administration, IAM, or ServiceNow-focused roles.
+              Available for roles in ServiceNow administration, ITSM implementation, and enterprise systems support.
             </p>
             <div class="contact-links">
               <a class="contact-link" href="mailto:qkazmi@qalbekazmi.com">qkazmi@qalbekazmi.com</a>
@@ -1082,14 +1136,8 @@
           <article class="card">
             <h3>Current Positioning</h3>
             <p>
-              Enterprise systems administrator with hands-on Acacia Network experience in identity, access, email, and support operations, paired with a ServiceNow portfolio focused on workflow design, CMDB learning, and implementation-oriented process improvement.
+              Enterprise Systems Administrator with experience across identity, access, email, and support operations, combined with ServiceNow administration, ITSM workflows, CMDB, and integrations.
             </p>
-            <div class="tags">
-              <span class="tag">Acacia Network</span>
-              <span class="tag">ServiceNow Portfolio</span>
-              <span class="tag">IAM</span>
-              <span class="tag">M365</span>
-            </div>
           </article>
         </div>
       </div>
@@ -1107,6 +1155,7 @@
       const header = document.getElementById('siteHeader');
       const menuBtn = document.getElementById('menuBtn');
       const mobileMenu = document.getElementById('mobileMenu');
+      const scrollBtn = document.getElementById('scrollTopBtn');
       let lastScrollY = window.scrollY;
       let ticking = false;
 
@@ -1120,6 +1169,12 @@
           mobileMenu.classList.remove('open');
         } else if (currentScrollY < lastScrollY - 6) {
           header.classList.remove('hide');
+        }
+
+        if (currentScrollY > 300) {
+          scrollBtn.classList.add('show');
+        } else {
+          scrollBtn.classList.remove('show');
         }
 
         lastScrollY = currentScrollY;
@@ -1147,7 +1202,6 @@
         });
       });
 
-      // CAROUSEL LOGIC
       document.querySelectorAll('[data-carousel]').forEach(carousel => {
         const track = carousel.querySelector('[data-carousel-track]');
         const prevBtn = carousel.querySelector('[data-carousel-prev]');
@@ -1175,21 +1229,9 @@
         updateButtons();
       });
 
-    
-      const scrollBtn = document.getElementById('scrollTopBtn');
-
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-          scrollBtn.classList.add('show');
-        } else {
-          scrollBtn.classList.remove('show');
-        }
-      });
-
       scrollBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
-
     })();
   </script>
 </body>
