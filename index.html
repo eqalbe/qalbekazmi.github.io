@@ -771,63 +771,105 @@
         </p>
 
         <div class="desktop-only projects-grid">
+
           <article class="project-card">
-            <h3>Email Relay & Printer Communication Fix</h3>
-            <p><strong>Problem:</strong> Devices unable to send emails due to relay failures and domain rejection.<br><strong>Solution:</strong> Configured SMTP relay with M365 connectors and IP authentication.<br><strong>Tools:</strong> Exchange Online, SMTP Relay, ManageEngine<br><strong>Impact:</strong> Restored scanning/email functionality across departments.</p>
+            <h3>Identity Lifecycle Automation</h3>
+            <p><strong>Problem:</strong> Inconsistent onboarding/offboarding without approvals or standard steps.<br>
+            <strong>Solution:</strong> Defined intake → approval → provisioning → closure. Standardized onboarding and deprovisioning. Automated account creation, licensing, and access removal.<br>
+            <strong>Tools:</strong> ServiceNow, ADManager Plus, Active Directory, Entra ID, Microsoft 365</p>
           </article>
 
           <article class="project-card">
-            <h3>OneDrive Orphaned Data Recovery</h3>
-            <p><strong>Problem:</strong> Data owned by deleted user inaccessible beyond retention period.<br><strong>Solution:</strong> Retrieved via Rubrik backup and reassigned ownership.<br><strong>Tools:</strong> Rubrik, OneDrive, M365<br><strong>Impact:</strong> Prevented data loss and restored business continuity.</p>
+            <h3>ITSM Process Implementation (Incident & Request)</h3>
+            <p><strong>Problem:</strong> No standard process, ownership, or tracking for requests/incidents.<br>
+            <strong>Solution:</strong> Defined incident/request workflows, assignment groups, and escalation paths. Structured intake and fulfillment.<br>
+            <strong>Tools:</strong> ServiceNow, InvGate, Active Directory</p>
           </article>
 
           <article class="project-card">
-            <h3>IAM Lifecycle & AD Sync Management</h3>
-            <p><strong>Problem:</strong> Inconsistent provisioning between AD and Entra ID.<br><strong>Solution:</strong> Structured OU sync and automated lifecycle management.<br><strong>Tools:</strong> Active Directory, Entra ID, ADManager Plus<br><strong>Impact:</strong> Reduced onboarding/offboarding errors.</p>
+            <h3>User Provisioning Integration</h3>
+            <p><strong>Problem:</strong> No centralized sync between identity and ITSM.<br>
+            <strong>Solution:</strong> Integrated ServiceNow with Entra via REST. Built Import Sets and Transform Maps. Mapped and auto-populated user records.<br>
+            <strong>Tools:</strong> ServiceNow, Entra ID, Microsoft Graph API, OAuth 2.0</p>
           </article>
 
           <article class="project-card">
-            <h3>CrowdStrike Endpoint Visibility Enhancement</h3>
-            <p><strong>Problem:</strong> Limited monitoring of USB/removable media activity.<br><strong>Solution:</strong> Configured webhook integrations and tuned policies.<br><strong>Tools:</strong> CrowdStrike Falcon<br><strong>Impact:</strong> Improved endpoint security visibility.</p>
+            <h3>SSO & Authentication Integration</h3>
+            <p><strong>Problem:</strong> Login failures due to auth misconfiguration.<br>
+            <strong>Solution:</strong> Configured SSO with Entra ID. Resolved OAuth/token issues. Standardized authentication flow.<br>
+            <strong>Tools:</strong> ServiceNow, Entra ID</p>
           </article>
 
           <article class="project-card">
-            <h3>Email Flow & Distribution Troubleshooting</h3>
-            <p><strong>Problem:</strong> Email delivery failures across groups and domains.<br><strong>Solution:</strong> Analyzed routing, rules, and Defender logs.<br><strong>Tools:</strong> Exchange Online, Defender<br><strong>Impact:</strong> Restored communication reliability.</p>
+            <h3>Workflow Automation & Task Orchestration</h3>
+            <p><strong>Problem:</strong> Manual onboarding/offboarding tasks caused delays.<br>
+            <strong>Solution:</strong> Automated multi-step provisioning/deprovisioning. Defined task sequencing across systems.<br>
+            <strong>Tools:</strong> ServiceNow, ADManager Plus</p>
           </article>
 
           <article class="project-card">
-            <h3>Transport Rule Automation (OOO Tracking)</h3>
-            <p><strong>Problem:</strong> No centralized tracking of time-off notifications.<br><strong>Solution:</strong> Created keyword-based rule with auto-BCC to shared mailbox.<br><strong>Tools:</strong> Exchange Mail Flow Rules<br><strong>Impact:</strong> Automated visibility for management.</p>
+            <h3>Incident Reassignment Automation</h3>
+            <p><strong>Problem:</strong> Incidents assigned to inactive users.<br>
+            <strong>Solution:</strong> Detected inactive users and reassigned to support groups to maintain ownership.<br>
+            <strong>Tools:</strong> ServiceNow</p>
           </article>
+
+          <article class="project-card">
+            <h3>CMDB & Service Mapping</h3>
+            <p><strong>Problem:</strong> Poor visibility into user/system relationships.<br>
+            <strong>Solution:</strong> Structured relationships between users, groups, and apps. Improved service dependency visibility.<br>
+            <strong>Tools:</strong> ServiceNow, Active Directory</p>
+          </article>
+
+          <article class="project-card">
+            <h3>Access Governance & RBAC</h3>
+            <p><strong>Problem:</strong> No centralized access control across systems.<br>
+            <strong>Solution:</strong> Implemented group-based RBAC. Standardized access assignment and removal.<br>
+            <strong>Tools:</strong> ServiceNow, Active Directory, ADManager Plus</p>
+          </article>
+
+          <article class="project-card">
+            <h3>Reporting & Operational Visibility</h3>
+            <p><strong>Problem:</strong> Limited visibility into users, licensing, and activity.<br>
+            <strong>Solution:</strong> Built reports for lifecycle, licensing, and security metrics to support operations.<br>
+            <strong>Tools:</strong> ServiceNow, Microsoft 365, ADManager Plus</p>
+          </article>
+
+          <article class="project-card">
+            <h3>REST API Integration</h3>
+            <p><strong>Problem:</strong> No automated data exchange between systems.<br>
+            <strong>Solution:</strong> Built inbound/outbound REST integrations. Configured auth and data mapping for sync.<br>
+            <strong>Tools:</strong> ServiceNow, REST APIs, Microsoft Graph API</p>
+          </article>
+
         </div>
 
         <div class="mobile-only">
           <div class="scroll-row">
-            <article class="project-card">
-              <h3>Identity & Access Administration Operations</h3>
-              <p>Supported user access, account lifecycle activity, and identity troubleshooting across enterprise systems.</p>
-              <div class="tags"><span class="tag">Acacia</span><span class="tag">IAM</span></div>
-            </article>
-            <article class="project-card">
-              <h3>Exchange Mail Flow & Delivery Support</h3>
-              <p>Worked through mailbox delivery issues, permissions, and sender/domain-related messaging problems.</p>
-              <div class="tags"><span class="tag">Exchange</span><span class="tag">M365</span></div>
-            </article>
-            <article class="project-card">
-              <h3>ITSM Framing for Non-ServiceNow Operations</h3>
-              <p>Applied structured service delivery thinking to real operational support work at Acacia Network.</p>
-              <div class="tags"><span class="tag">ITSM</span><span class="tag">Ops</span></div>
-            </article>
-            <article class="project-card">
-              <h3>Customer Workflow Automation Model</h3>
-              <p>Built process logic for routing business tasks across teams from intake through delivery.</p>
-              <div class="tags"><span class="tag">Workflow</span><span class="tag">Routing</span></div>
-            </article>
+
+            <article class="project-card"><h3>Identity Lifecycle Automation</h3><p>Standardized onboarding/offboarding with automated provisioning and access removal. (ServiceNow, ADManager Plus, AD, Entra, M365)</p></article>
+
+            <article class="project-card"><h3>ITSM Process Implementation</h3><p>Defined incident/request workflows, assignment groups, and escalation paths. (ServiceNow, InvGate, AD)</p></article>
+
+            <article class="project-card"><h3>User Provisioning Integration</h3><p>Integrated ServiceNow with Entra using REST, Import Sets, and Transform Maps. (ServiceNow, Graph API)</p></article>
+
+            <article class="project-card"><h3>SSO & Authentication</h3><p>Configured SSO and resolved OAuth/token issues. (ServiceNow, Entra ID)</p></article>
+
+            <article class="project-card"><h3>Workflow Automation</h3><p>Automated provisioning/deprovisioning with task sequencing. (ServiceNow, ADManager Plus)</p></article>
+
+            <article class="project-card"><h3>Incident Reassignment</h3><p>Reassigned tickets from inactive users to maintain ownership. (ServiceNow)</p></article>
+
+            <article class="project-card"><h3>CMDB & Service Mapping</h3><p>Defined relationships between users, groups, and applications. (ServiceNow, AD)</p></article>
+
+            <article class="project-card"><h3>Access Governance</h3><p>Implemented group-based RBAC and standardized access control. (ServiceNow, AD)</p></article>
+
+            <article class="project-card"><h3>Reporting</h3><p>Built reports for lifecycle, licensing, and security metrics. (ServiceNow, M365)</p></article>
+
+            <article class="project-card"><h3>REST Integrations</h3><p>Built API integrations for automated data sync. (ServiceNow, Graph API)</p></article>
+
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     <section id="skills">
       <div class="container">
@@ -877,6 +919,7 @@
             <div class="contact-links">
               <a class="contact-link" href="mailto:qkazmi@qalbekazmi.com">qkazmi@qalbekazmi.com</a>
               <a class="contact-link" href="https://www.linkedin.com/in/qalbekazmi/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a class="contact-link" href="https://github.com/your-github" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a class="contact-link" href="https://qalbekazmi.com" target="_blank" rel="noopener noreferrer">qalbekazmi.com</a>
             </div>
           </article>
