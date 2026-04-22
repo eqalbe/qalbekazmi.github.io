@@ -456,7 +456,6 @@
 
     .skills-wrap {
       display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
       gap: 18px;
       align-items: start;
     }
@@ -467,14 +466,31 @@
     }
 
     .skill-line {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.04);
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.08);
       display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: center;
+      flex-direction: column;
+      gap: 6px;
+      transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+    }
+
+    .skill-line:hover {
+      transform: translateY(-3px);
+      border-color: rgba(123,176,255,0.35);
+      background: rgba(123,176,255,0.08);
+    }
+
+    .skill-line span:first-child {
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .skill-line span:last-child {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
     }
 
     .skill-line span:last-child {
@@ -495,8 +511,76 @@
       max-width: 100%;
       overscroll-behavior-x: contain;
       -webkit-overflow-scrolling: touch;
+      scroll-behavior: smooth;
     }
     .scroll-row::-webkit-scrollbar { display: none; }
+
+    .carousel-wrap {
+      position: relative;
+    }
+
+    .carousel-controls {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .carousel-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: var(--text);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, opacity 0.18s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .carousel-btn:hover {
+      transform: translateY(-1px);
+      background: rgba(123,176,255,0.10);
+      border-color: rgba(123,176,255,0.35);
+    }
+
+    .carousel-btn:disabled {
+      opacity: 0.45;
+      cursor: default;
+      transform: none;
+    }
+
+    .carousel-btn svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .tool-item {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .tool-item:hover {
+      background: rgba(123,176,255,0.08);
+      border-color: rgba(123,176,255,0.3);
+      color: var(--text);
+    }
 
     .contact-wrap {
       display: grid;
@@ -556,7 +640,39 @@
       .btn { min-height: 46px; font-size: 0.92rem; }
       .scroll-row { grid-auto-columns: calc(100vw - 32px); }
     }
-  </style>
+  #scrollTopBtn {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 48px;
+      height: 48px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.06);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease, transform 0.2s ease, background 0.2s ease;
+      box-shadow: var(--shadow);
+      z-index: 999;
+    }
+
+    #scrollTopBtn.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #scrollTopBtn:hover {
+      transform: translateY(-2px);
+      background: rgba(123,176,255,0.12);
+    }
+
+</style>
 </head>
 <body>
   <header class="site-header" id="siteHeader">
@@ -591,10 +707,10 @@
       <div class="container">
         <div class="hero-grid">
           <div>
-            <div class="hero-kicker">Enterprise Systems • Identity • Workflow Thinking</div>
-            <h1>Modern IT operations with a ServiceNow-style lens.</h1>
+            <div class="hero-kicker">Enterprise Systems • Identity • ITSM</div>
+            <h1>Enterprise systems administration with ITSM alignment.</h1>
             <p class="lead">
-              IT Systems / IAM specialist supporting enterprise identity, email, and infrastructure at Acacia Network, with a portfolio focused on translating real-world operations into ServiceNow-aligned ITSM workflows and implementation patterns.
+              IT Systems and IAM specialist supporting identity, messaging, and infrastructure at Acacia Network, with a focus on applying ITSM practices and ServiceNow-aligned workflows.
             </p>
 
             <div class="hero-actions">
@@ -607,9 +723,9 @@
             <div class="profile-box">
               <img src="IMG_0129.jpg" alt="Qalbe Kazmi" />
             </div>
-            <h3>What this site shows</h3>
+            <h3>Overview</h3>
             <p style="color: var(--muted); line-height: 1.75; margin-top: 10px;">
-              This portfolio connects real enterprise support work from Acacia Network with ServiceNow-aligned process thinking, workflow structure, and implementation language.
+              Work reflects enterprise support across identity, messaging, and operations, structured using ITSM practices and ServiceNow-aligned implementation patterns.
             </p>
 
             <div class="quick-stats">
@@ -623,24 +739,19 @@
               </div>
               <div class="stat">
                 <strong>M365</strong>
-                <span>Exchange, mailbox permissions, mail flow, and admin support.</span>
+                <span>Exchange, mailbox permissions, and mail flow support.</span>
               </div>
               <div class="stat">
-                <strong>ITSM</strong>
-                <span>Structured intake, prioritization, and workflow-driven resolution.</span>
-              </div>
-            </div>
-              <div class="stat">
-                <strong>M365</strong>
-                <span>Exchange, mailbox permissions, mail flow, and admin support.</span>
+                <strong>ServiceNow</strong>
+                <span>Administration, ITSM workflows, CMDB, and integrations.</span>
               </div>
               <div class="stat">
-                <strong>ITSM</strong>
-                <span>ServiceNow-style intake, ownership, and process standardization.</span>
+                <strong>Security</strong>
+                <span>Endpoint, email, and identity protection across systems.</span>
               </div>
               <div class="stat">
-                <strong>Ops</strong>
-                <span>Hands-on enterprise support tied to real business operations.</span>
+                <strong>Operations</strong>
+                <span>Support, escalation handling, and system ownership.</span>
               </div>
             </div>
           </aside>
@@ -653,26 +764,26 @@
         <div class="eyebrow">Tools</div>
         <h2>Enterprise platforms used across identity, security, infrastructure, and operations.</h2>
 
-        <div class="scroll-row">
-          <div class="card"><h3>Microsoft Entra ID</h3></div>
-          <div class="card"><h3>Active Directory</h3></div>
-          <div class="card"><h3>Azure Portal</h3></div>
-          <div class="card"><h3>Microsoft 365 Admin</h3></div>
-          <div class="card"><h3>Exchange Admin Center</h3></div>
-          <div class="card"><h3>Microsoft Defender</h3></div>
-          <div class="card"><h3>SharePoint Admin</h3></div>
-          <div class="card"><h3>OneDrive</h3></div>
-          <div class="card"><h3>ADManager Plus</h3></div>
-          <div class="card"><h3>InvGate</h3></div>
-          <div class="card"><h3>CrowdStrike Falcon</h3></div>
-          <div class="card"><h3>Cisco Meraki</h3></div>
-          <div class="card"><h3>Cisco Umbrella</h3></div>
-          <div class="card"><h3>Check Point Infinity</h3></div>
-          <div class="card"><h3>Barracuda Email Security</h3></div>
-          <div class="card"><h3>Nutanix Prism</h3></div>
-          <div class="card"><h3>Rubrik</h3></div>
-          <div class="card"><h3>Okta</h3></div>
-          <div class="card"><h3>Atera</h3></div>
+        <div class="tools-grid">
+          <div class="tool-item">Microsoft Entra ID</div>
+          <div class="tool-item">Active Directory</div>
+          <div class="tool-item">Azure Portal</div>
+          <div class="tool-item">Microsoft 365 Admin</div>
+          <div class="tool-item">Exchange Admin Center</div>
+          <div class="tool-item">Microsoft Defender</div>
+          <div class="tool-item">SharePoint Admin</div>
+          <div class="tool-item">OneDrive</div>
+          <div class="tool-item">ADManager Plus</div>
+          <div class="tool-item">InvGate</div>
+          <div class="tool-item">CrowdStrike Falcon</div>
+          <div class="tool-item">Cisco Meraki</div>
+          <div class="tool-item">Cisco Umbrella</div>
+          <div class="tool-item">Check Point Infinity</div>
+          <div class="tool-item">Barracuda Email Security</div>
+          <div class="tool-item">Nutanix Prism</div>
+          <div class="tool-item">Rubrik</div>
+          <div class="tool-item">Okta</div>
+          <div class="tool-item">Atera</div>
         </div>
       </div>
     </section>
@@ -680,7 +791,7 @@
     <section id="about">
       <div class="container">
         <div class="eyebrow">About</div>
-        <h2>Technical enough for hiring managers. Clear enough for everyone else.</h2>
+        <h2>Enterprise systems administration with a focus on process and delivery.</h2>
         <p class="section-copy">
           I am an IT systems professional with hands-on experience in identity, messaging, access, and enterprise support operations. At Acacia Network, the environment is not built on ServiceNow, but I consistently frame work through ITSM principles like structured intake, prioritization, ownership, and process improvement. Alongside that work, I continue building a ServiceNow-centered portfolio through labs, workflow design, CMDB learning, and implementation-based projects.
         </p>
@@ -705,7 +816,7 @@
     <section id="experience">
       <div class="container">
         <div class="eyebrow">Experience</div>
-        <h2>Work that blends systems administration with workflow-driven thinking.</h2>
+        <h2>Experience across enterprise systems, identity, and service operations.</h2>
 
         <div class="timeline">
           <article class="exp-card">
@@ -765,9 +876,9 @@
     <section id="projects">
       <div class="container">
         <div class="eyebrow">Projects</div>
-        <h2>Resume-ready projects built from real work and portfolio thinking.</h2>
+        <h2>Projects based on real-world work, structured for enterprise implementation.</h2>
         <p class="section-copy">
-          Portfolio projects derived from real Acacia Network work, structured to reflect enterprise problem-solving, tooling, and ITSM-aligned implementation thinking.
+          Projects reflect real operational scenarios, structured using ITSM practices, integrations, and workflow-based implementation.
         </p>
 
         <div class="desktop-only projects-grid">
@@ -845,7 +956,16 @@
         </div>
 
         <div class="mobile-only">
-          <div class="scroll-row">
+          <div class="carousel-wrap" data-carousel>
+            <div class="carousel-controls">
+              <button class="carousel-btn" type="button" data-carousel-prev aria-label="Scroll left">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+              </button>
+              <button class="carousel-btn" type="button" data-carousel-next aria-label="Scroll right">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+              </button>
+            </div>
+            <div class="scroll-row" data-carousel-track>
 
             <article class="project-card"><h3>Identity Lifecycle Automation</h3><p>Standardized onboarding/offboarding with automated provisioning and access removal. (ServiceNow, ADManager Plus, AD, Entra, M365)</p></article>
 
@@ -869,37 +989,72 @@
 
           </div>
         </div>
+        </div>
       </section>
 
     <section id="skills">
       <div class="container">
         <div class="eyebrow">Skills</div>
-        <h2>Tools and strengths that connect operations to implementation.</h2>
+        <h2>Core capabilities across identity, messaging, security, and ITSM.</h2>
 
         <div class="skills-wrap">
-          <article class="card">
-            <h3>Core Focus</h3>
-            <p>
-              My strongest value sits at the intersection of systems administration, enterprise support, and ServiceNow-style process thinking. That is what ties the Acacia Network work to the portfolio story.
+          <article class="card" style="padding:18px 20px;">
+            <h3 style="margin-bottom:8px;">Core Focus</h3>
+            <p style="font-size:0.92rem; line-height:1.6; margin-top:0;">
+              Systems administration, enterprise support, and ServiceNow-aligned process thinking across identity, messaging, security, and operations.
             </p>
           </article>
 
           <div class="skills-list desktop-only">
-            <div class="skill-line"><span>Identity & Access</span><span>Entra ID, AD, user lifecycle, permissions</span></div>
-            <div class="skill-line"><span>Messaging & M365</span><span>Exchange Online, mail flow, shared access</span></div>
-            <div class="skill-line"><span>ServiceNow Concepts</span><span>ITSM, workflow logic, CMDB fundamentals</span></div>
-            <div class="skill-line"><span>Admin Platforms</span><span>InvGate, ADManager Plus, M365 consoles</span></div>
-            <div class="skill-line"><span>Operations</span><span>Troubleshooting, escalation, documentation</span></div>
-            <div class="skill-line"><span>Workflow Thinking</span><span>Intake, routing, standardization, process design</span></div>
+            <div class="skill-line">
+              <span>Identity & Access</span>
+              <span>Entra ID, Active Directory, lifecycle management, permissions</span>
+            </div>
+
+            <div class="skill-line">
+              <span>Messaging & M365</span>
+              <span>Exchange Online, mail flow, shared mailboxes, permissions</span>
+            </div>
+
+            <div class="skill-line">
+              <span>ServiceNow</span>
+              <span>Administration, ITSM workflows, CMDB, user provisioning, integrations</span>
+            </div>
+
+            <div class="skill-line">
+              <span>Security</span>
+              <span>Defender, CrowdStrike, email security, identity protection</span>
+            </div>
+
+            <div class="skill-line">
+              <span>Admin Platforms</span>
+              <span>InvGate, ADManager Plus, M365 admin centers</span>
+            </div>
+
+            <div class="skill-line">
+              <span>Operations</span>
+              <span>Troubleshooting, escalation, documentation, ownership</span>
+            </div>
           </div>
 
           <div class="mobile-only">
-            <div class="scroll-row">
-              <article class="card"><h3>Identity & Access</h3><p>Entra ID, AD, user lifecycle, permissions, and authentication support.</p></article>
-              <article class="card"><h3>Messaging & M365</h3><p>Exchange Online, mailbox permissions, distribution behavior, and mail flow support.</p></article>
-              <article class="card"><h3>ServiceNow Concepts</h3><p>ITSM, workflow logic, CMDB foundations, and implementation framing.</p></article>
-              <article class="card"><h3>Admin Platforms</h3><p>InvGate, ADManager Plus, Microsoft 365 administration, and enterprise consoles.</p></article>
-              <article class="card"><h3>Operations</h3><p>Prioritization, structured troubleshooting, documentation, and escalation handling.</p></article>
+            <div class="carousel-wrap" data-carousel>
+              <div class="carousel-controls">
+                <button class="carousel-btn" type="button" data-carousel-prev aria-label="Scroll left">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="carousel-btn" type="button" data-carousel-next aria-label="Scroll right">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+                </button>
+              </div>
+              <div class="scroll-row" data-carousel-track>
+                <article class="card"><h3>Identity & Access</h3><p>Entra ID, Active Directory, lifecycle management, permissions.</p></article>
+                <article class="card"><h3>Messaging & M365</h3><p>Exchange Online, mail flow, shared mailboxes, permissions.</p></article>
+                <article class="card"><h3>ServiceNow</h3><p>Administration, ITSM workflows, CMDB, user provisioning, integrations.</p></article>
+                <article class="card"><h3>Security</h3><p>Defender, CrowdStrike, email security, identity protection.</p></article>
+                <article class="card"><h3>Admin Platforms</h3><p>InvGate, ADManager Plus, Microsoft 365 admin centers.</p></article>
+                <article class="card"><h3>Operations</h3><p>Troubleshooting, escalation, documentation, and ownership.</p></article>
+              </div>
             </div>
           </div>
         </div>
@@ -909,7 +1064,7 @@
     <section id="contact">
       <div class="container">
         <div class="eyebrow">Contact</div>
-        <h2>Built to be updated in one place.</h2>
+        <h2>Contact</h2>
 
         <div class="contact-wrap">
           <article class="card">
@@ -942,8 +1097,10 @@
   </main>
 
   <footer>
-    <div class="container">© 2026 Qalbe Kazmi. Enterprise systems work presented with a ServiceNow-aligned portfolio lens.</div>
+    <div class="container">© 2026 Qalbe Kazmi. Enterprise systems, identity, and ITSM-focused experience.</div>
   </footer>
+
+  <button id="scrollTopBtn" aria-label="Scroll to top">↑</button>
 
   <script>
     (function () {
@@ -989,6 +1146,50 @@
           header.classList.remove('hide');
         });
       });
+
+      // CAROUSEL LOGIC
+      document.querySelectorAll('[data-carousel]').forEach(carousel => {
+        const track = carousel.querySelector('[data-carousel-track]');
+        const prevBtn = carousel.querySelector('[data-carousel-prev]');
+        const nextBtn = carousel.querySelector('[data-carousel-next]');
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const getStep = () => Math.max(track.clientWidth * 0.85, 280);
+
+        const updateButtons = () => {
+          const maxScroll = track.scrollWidth - track.clientWidth;
+          prevBtn.disabled = track.scrollLeft <= 4;
+          nextBtn.disabled = track.scrollLeft >= maxScroll - 4;
+        };
+
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: getStep(), behavior: 'smooth' });
+        });
+
+        track.addEventListener('scroll', updateButtons, { passive: true });
+        window.addEventListener('resize', updateButtons);
+        updateButtons();
+      });
+
+    
+      const scrollBtn = document.getElementById('scrollTopBtn');
+
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+          scrollBtn.classList.add('show');
+        } else {
+          scrollBtn.classList.remove('show');
+        }
+      });
+
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
     })();
   </script>
 </body>
