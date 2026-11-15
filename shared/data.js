@@ -43,13 +43,13 @@ window.SITE={
   {
    "name": "Certified System Administrator",
    "abbr": "CSA",
-   "img": "../assets/servicenow-csa.png",
+   "img": "assets/servicenow-csa.png",
    "url": "https://www.credly.com/badges/29ebd944-6505-4ada-a078-04feebbdc6ec/public_url"
   },
   {
    "name": "Certified Implementation Specialist — Data Foundations",
    "abbr": "CMDB and CSDM",
-   "img": "../assets/servicenow-data-foundations.png",
+   "img": "assets/servicenow-data-foundations.png",
    "url": "https://www.credly.com/badges/7add255d-192f-43ce-9f97-c411e505c777/public_url"
   }
  ],
