@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qalbe Kazmi — ServiceNow & Microsoft 365 Engineer · Preview C</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="ServiceNow and Microsoft 365 engineering: ITSM, CMDB, hybrid identity, Exchange, OneDrive and SharePoint, Entra Conditional Access and PIM, and PowerShell automation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23182b33%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Georgia,serif%27 font-size=%2728%27 text-anchor=%27middle%27 fill=%27white%27%3EQK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400&family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+:root{--bg:#f4f1e9;--panel:#fbf9f3;--ink:#182b33;--muted:#58676b;--line:#d6d9d2;--line-strong:#b9c0bb;--accent:#a23e24;--accent-ink:#fffdf7;--accent-text:#a23e24;--metric:#182b33;--row-hover:#ece8dd;--head-bg:rgba(244,241,233,.96);--band-line:#36515b;--band-muted:#c2cdd0;--dlg-bg:#fffdf7;--backdrop:rgba(24,43,51,.45);--switch-bg:#fffdf7;
+--font-head:"Inter Tight","Inter",system-ui,sans-serif;--font-body:"Inter",system-ui,sans-serif;--font-mono:"IBM Plex Mono",ui-monospace,monospace;--font-num:"Newsreader",Georgia,serif;--serif:"Newsreader",Georgia,serif}
+.hero{position:relative;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.7fr);gap:64px;align-items:center;padding:56px 0 88px}
+.hero::before{content:"";position:absolute;inset:0 -24px;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;opacity:.45;mask-image:linear-gradient(180deg,#000,transparent 85%);-webkit-mask-image:linear-gradient(180deg,#000,transparent 85%);pointer-events:none;z-index:-1}
+.topline{display:flex;justify-content:space-between;align-items:center;grid-column:1/-1;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--line-strong);padding-bottom:14px;margin-bottom:8px}
+.live{display:inline-flex;align-items:center;gap:8px;color:var(--accent)}
+.live i{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:live 1.8s ease-in-out infinite}
+@keyframes live{50%{opacity:.25}}
+.hero h1{font-size:clamp(50px,6.4vw,100px);letter-spacing:-.045em;line-height:.95;font-weight:500}
+.hero h1 em,.section-head h2 em,.exp-side h2 em,.contact h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em;color:var(--accent)}
+.section-head h2 em,.exp-side h2 em{color:var(--ink)}
+.intro{font-size:18px;color:var(--muted);max-width:600px;margin:30px 0 34px}
+.actions{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.btn{font-size:14.5px;text-decoration:none;padding:16px 24px;background:var(--ink);color:#fff;display:inline-flex;gap:18px;transition:.25s}
+.btn:hover{background:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink);padding:6px 0;border-bottom:1px solid var(--ink)}
+.btn.ghost:hover{color:var(--accent);border-color:var(--accent)}
+.qual{font-size:13px;margin:26px 0 0;color:var(--ink)}
+.qual span{color:var(--accent);margin-right:8px}
+.card{background:var(--ink);color:#fff;padding:18px 18px 22px;position:relative}
+.card-top{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#b9c6c9;margin-bottom:16px}
+.card img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%}
+.card-meta{display:flex;justify-content:space-between;align-items:end;margin-top:18px}
+.card-meta b{font-family:var(--serif);font-weight:400;font-size:28px}
+.card-meta span{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#b9c6c9;text-align:right}
+.corner{position:absolute;width:14px;height:14px;border-color:var(--accent);border-style:solid}
+.corner.tl{top:-7px;left:-7px;border-width:2px 0 0 2px}.corner.br{bottom:-7px;right:-7px;border-width:0 2px 2px 0}
+.stat-num{font-weight:400}
+.fcard{background:var(--panel)}
+.fcard:nth-child(1){background:var(--ink);color:#fff;border-color:var(--ink)}
+.fcard:nth-child(1) .fcard-metric{color:#f1b9a7}
+.fcard:nth-child(1) .fcard-summary,.fcard:nth-child(1) .fcard-top,.fcard:nth-child(1) .fcard-metric-label{color:#b9c6c9}
+.fcard:nth-child(1) .chip{color:#c8d3d5;border-color:#3d5761}
+.fcard:nth-child(1) .fcard-more{color:#fff}
+.fcard-metric{font-weight:400}
+.prow-metric strong{font-weight:400;font-size:24px}
+.band{background:var(--ink);color:#fff}
+.band .eyebrow{color:#b9c6c9}
+.band .lede{color:#c2cdd0}
+.band .section-head h2 em{color:#e6b9a8}
+.band .xp-idx{color:#e6b9a8}
+.contact{border-top:1px solid var(--line)}
+@media (max-width:980px){.hero{grid-template-columns:1fr;gap:40px;padding:48px 0 64px}.card{max-width:460px}}
+</style>
+</head><body>
+<a class="skip" href="#main">Skip to content</a><div class="progress" aria-hidden="true"></div>
+<header class="site-head"><div class="wrap head-in">
+<a href="#top" class="brand" aria-label="Qalbe Kazmi, back to top"><span class="mono-mark">QK</span><span class="brand-txt">Qalbe Kazmi<small>ServiceNow & Microsoft 365</small></span></a>
+<button class="menu" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation"><a href="#work">Work</a><a href="#expertise">Expertise</a><a href="#credentials">Credentials</a><a href="#experience">Experience</a><a class="nav-cta" href="#contact">Let’s talk ↗</a></nav>
+</div></header>
+<main id="main">
+<section class="wrap hero" id="top">
+<div class="topline mono"><span>New Jersey / ServiceNow & Microsoft 365</span><span class="live"><i aria-hidden="true"></i>Available · <span id="clock"></span></span></div>
+<div class="hero-copy">
+<h1>Systems in sync.<br>Workflows in <em>motion.</em></h1>
+<p class="intro">I’m Qalbe, a ServiceNow and Microsoft 365 engineer with 9+ years in enterprise IT. I run hybrid identity, Exchange, OneDrive and SharePoint for a regulated healthcare network of about 3,500 active users, and I build ServiceNow ITSM and CMDB workflows that connect those systems to the people who depend on them.</p>
+<div class="actions"><a class="btn" href="#work">Explore my work <span>↗</span></a><a class="btn ghost" href="#contact">Get in touch ↗</a></div>
+<p class="qual"><span>✦</span>ServiceNow CSA · CIS Data Foundations (CMDB & CSDM)</p>
+</div>
+<aside class="card" aria-label="About Qalbe"><span class="corner tl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+<div class="card-top"><span>Profile / 001</span><span>ServiceNow · M365</span></div>
+<img src="../portrait.jpg" alt="Qalbe Kazmi" width="600" height="600">
+<div class="card-meta"><b>Qalbe Kazmi</b><span>Practical engineering<br>Based in New Jersey</span></div>
+</aside>
+</section>
+<section class="wrap stats-wrap" aria-label="Highlights"><div id="stats" class="stats"></div></section>
+<section id="work" class="wrap section">
+<div class="section-head"><p class="eyebrow">01 / Selected work</p><h2>Technical depth.<br><em>Practical value.</em></h2><p class="lede">Real operational problems across ServiceNow, identity, and Microsoft 365. Four headline cases first, then the full record.</p></div>
+<div id="featured" class="featured-grid"></div>
+<div class="toolbar"><div id="filters" class="filters" role="group" aria-label="Filter projects"></div><label><span class="sr-only">Search projects</span><input id="search" class="search" type="search" placeholder="Search projects…"></label></div>
+<p id="count" class="sr-only" role="status" aria-live="polite"></p>
+<div id="projects" class="plist"></div>
+<p id="empty" hidden>No projects match. Try another keyword or category.</p>
+<button id="show-all" class="show-all" type="button" hidden>Show all projects</button>
+<p class="fine">Project overviews omit employer identifiers and sensitive configurations. Figures are approximate. Pilots and in-progress work are labeled as such.</p>
+</section>
+<section id="expertise" class="section band"><div class="wrap">
+<div class="section-head"><p class="eyebrow">02 / How I work</p><h2>The connection between<br><em>platforms and people.</em></h2><p class="lede band-lede">Four areas I work across every week, and the tools I use in each.</p></div>
+<div id="expertise-list" class="xp-list"></div></div></section>
+<section id="credentials" class="wrap section">
+<div class="section-head"><p class="eyebrow">03 / Credentials</p><h2>Knowledge backed<br><em>by credentials.</em></h2><p class="lede">ServiceNow certifications with public verification on Credly.</p></div>
+<div id="cert-list" class="cert-list"></div></section>
+<section id="experience" class="wrap section exp">
+<div class="exp-side"><p class="eyebrow">04 / Experience</p><h2>Grounded in<br><em>real operations.</em></h2><p class="lede">9+ years across regulated healthcare IT, automotive dealership operations, and enterprise telecommunications support.</p>
+<div class="edu"><p class="eyebrow">Education</p><p>University of East London<br>BSc Information Security Systems · 2011–2015</p></div></div>
+<div id="jobs" class="jobs"></div></section>
+<section id="contact" class="section contact"><div class="wrap">
+<p class="eyebrow">05 / Contact</p><h2>Good systems start <em>with a conversation.</em></h2>
+<p class="lede">Let’s talk about ServiceNow, Microsoft 365, hybrid identity, or an operational problem that needs a practical fix.</p>
+<div class="contact-links"><a class="email" href="mailto:qkazmi@qalbekazmi.com">qkazmi@qalbekazmi.com ↗</a><a href="https://www.linkedin.com/in/qalbekazmi/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div>
+</div></section>
+</main>
+<footer class="wrap foot"><span>© 2026 Qalbe Kazmi · ServiceNow & Microsoft 365</span><a href="#top">Back to top ↑</a></footer>
+<nav class="switcher" aria-label="Design previews"><span>Preview</span><a href="../a/"><b>A</b><span class="sw-l"> · Command</span></a><a href="../b/"><b>B</b><span class="sw-l"> · Systems</span></a><a href="../c/" aria-current=page><b>C</b><span class="sw-l"> · Evolved</span></a><a href="../">Current</a></nav>
+<script src="../shared/data.js"></script><script src="../shared/site.js"></script>
+</body></html>

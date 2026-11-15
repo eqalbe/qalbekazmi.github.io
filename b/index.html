@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qalbe Kazmi — ServiceNow & Microsoft 365 Engineer · Preview B</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="ServiceNow and Microsoft 365 engineering: ITSM, CMDB, hybrid identity, Exchange, OneDrive and SharePoint, Entra Conditional Access and PIM, and PowerShell automation.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2712%27 fill=%27%23182b33%27/%3E%3Ctext x=%2732%27 y=%2742%27 font-family=%27Georgia,serif%27 font-size=%2728%27 text-anchor=%27middle%27 fill=%27white%27%3EQK%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../shared/base.css">
+<style>
+:root{--bg:#08101d;--panel:#0e1a2c;--ink:#e7eef9;--muted:#8a9cb8;--line:#1a2a42;--line-strong:#2a3e5c;--accent:#5aa9ff;--accent-ink:#04101f;--accent-text:#7cbcff;--node:#3fd1c0;--metric:#ffffff;--row-hover:#0f1d31;--head-bg:rgba(8,16,29,.8);--band-line:#1d2f4a;--band-muted:#9aadc8;--dlg-bg:#0c1728;--backdrop:rgba(3,7,14,.75);--switch-bg:#0e1a2c;
+--font-head:"Sora",system-ui,sans-serif;--font-body:"Inter",system-ui,sans-serif;--font-mono:"IBM Plex Mono",ui-monospace,monospace}
+body{background:radial-gradient(1200px 700px at 78% -10%,rgba(90,169,255,.16),transparent 60%),radial-gradient(900px 600px at -10% 30%,rgba(63,209,192,.08),transparent 60%),var(--bg);background-attachment:fixed}
+.mono-mark{border-color:var(--accent);color:var(--accent);border-radius:50%}
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:48px;align-items:center;padding:80px 0 88px}
+.who{display:flex;align-items:center;gap:14px;margin-bottom:30px}
+.who img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);box-shadow:0 0 0 5px rgba(90,169,255,.15)}
+.who b{display:block;font-family:var(--font-head);font-weight:500;font-size:16px}
+.who span{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.hero h1{font-size:clamp(44px,5.6vw,80px);letter-spacing:-.035em;line-height:1.02}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--accent),var(--node));-webkit-background-clip:text;background-clip:text;color:transparent}
+.intro{font-size:17.5px;color:#a7b8d1;max-width:560px;margin:28px 0 34px}
+.actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-size:14.5px;text-decoration:none;padding:15px 24px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:500;transition:.25s}
+.btn:hover{box-shadow:0 0 0 6px rgba(90,169,255,.2)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line-strong)}
+.btn.ghost:hover{border-color:var(--accent);box-shadow:none}
+.mapwrap{position:relative;border:1px solid var(--line);border-radius:20px;background:rgba(14,26,44,.55);padding:18px}
+.map-label{display:flex;justify-content:space-between;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:2px 6px 10px}
+#nodemap{width:100%;height:auto;display:block;overflow:visible}
+#nodemap .ln{stroke:#2a4b75;stroke-width:1.2;fill:none}
+#nodemap .flow{stroke:var(--accent);stroke-width:1.6;fill:none;stroke-dasharray:4 10;animation:flow 2.4s linear infinite;opacity:.75}
+@keyframes flow{to{stroke-dashoffset:-56}}
+#nodemap [data-node]{cursor:pointer;outline:none}
+#nodemap [data-node] circle.core{fill:#0e1f36;stroke:var(--node);stroke-width:1.5;transition:fill .25s,stroke .25s}
+#nodemap [data-node] circle.halo{fill:none;stroke:var(--node);opacity:0;transition:opacity .25s}
+#nodemap [data-node] text{fill:#d7e4f5;font-family:Inter,system-ui,sans-serif;font-size:13px;text-anchor:middle;pointer-events:none}
+#nodemap [data-node].hub circle.core{stroke:var(--accent);fill:#0d2647}
+#nodemap.focus [data-node]:not(.on) text{opacity:.55}
+#nodemap.focus [data-node]:not(.on) circle.core{stroke-opacity:.5}
+#nodemap [data-node].on circle.core,#nodemap [data-node]:focus-visible circle.core{fill:#123358;stroke:#fff}
+#nodemap [data-node].on circle.halo{opacity:.5;animation:halo 1.8s ease-out infinite}
+@keyframes halo{from{r:var(--r0);opacity:.55}to{r:var(--r1);opacity:0}}
+.hub .pulse{fill:none;stroke:var(--accent);animation:pulse 2.6s ease-out infinite}
+@keyframes pulse{from{r:46px;opacity:.6}to{r:80px;opacity:0}}
+#node-info{margin-top:10px;border-top:1px solid var(--line);padding:14px 6px 2px;min-height:118px}
+.node-info-head{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--node)}
+#node-info ul{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:4px}
+#node-info button{background:transparent;border:0;padding:3px 0;font-size:14.5px;color:var(--ink);text-align:left}
+#node-info button:hover{color:var(--accent-text)}
+.stats{border-color:var(--line-strong)}
+.stat-num{background:linear-gradient(90deg,#fff,#a9d1ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.fcard{border-radius:18px;background:linear-gradient(160deg,rgba(90,169,255,.08),rgba(14,26,44,.6) 45%);backdrop-filter:blur(6px)}
+.fcard:hover{box-shadow:0 20px 60px rgba(90,169,255,.12)}
+.fcard-metric{background:linear-gradient(90deg,#fff,var(--node));-webkit-background-clip:text;background-clip:text;color:transparent}
+.chip{border-radius:999px}
+.filter,.show-all{border-radius:999px}
+.filter[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.prow{border-radius:12px}
+.prow.lit,.fcard.lit{background:rgba(90,169,255,.08)}
+.prow.lit .prow-idx{color:var(--node)}
+.fcard.lit{border-color:var(--node)}
+.band{background:rgba(5,10,20,.6);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cert,.dlg{border-radius:18px}
+.section-head h2 em,.contact h2 em,.exp-side h2 em{font-style:normal;color:var(--accent-text)}
+.switcher{border-radius:999px}.switcher a{border-radius:999px}
+@media (max-width:980px){.hero{grid-template-columns:1fr;padding:48px 0 64px}}
+</style>
+</head><body>
+<a class="skip" href="#main">Skip to content</a><div class="progress" aria-hidden="true"></div>
+<header class="site-head"><div class="wrap head-in">
+<a href="#top" class="brand" aria-label="Qalbe Kazmi, back to top"><span class="mono-mark">QK</span><span class="brand-txt">Qalbe Kazmi<small>ServiceNow & Microsoft 365</small></span></a>
+<button class="menu" aria-expanded="false" aria-controls="navigation">Menu</button>
+<nav id="navigation" aria-label="Main navigation"><a href="#work">Work</a><a href="#expertise">Expertise</a><a href="#credentials">Credentials</a><a href="#experience">Experience</a><a class="nav-cta" href="#contact">Let’s talk ↗</a></nav>
+</div></header>
+<main id="main">
+<section class="wrap hero" id="top">
+<div class="hero-copy">
+<div class="who"><img src="../portrait.jpg" alt="Qalbe Kazmi" width="112" height="112"><div><b>Qalbe Kazmi</b><span>ServiceNow · Microsoft 365 · NJ</span></div></div>
+<h1>I connect the systems <em>your people depend on.</em></h1>
+<p class="intro">I’m Qalbe, a ServiceNow and Microsoft 365 engineer with 9+ years in enterprise IT. I run hybrid identity, Exchange, OneDrive and SharePoint for a regulated healthcare network of about 3,500 active users, and I build ServiceNow ITSM and CMDB workflows that connect those systems to the people who depend on them.</p>
+<div class="actions"><a class="btn" href="#work">Explore my work ↗</a><a class="btn ghost" href="#contact">Get in touch</a></div>
+</div>
+<div class="mapwrap"><div class="map-label"><span>System map</span><span>Hover or tap a node</span></div><svg id="nodemap" viewBox="0 0 600 470" role="group" aria-label="Map of the systems I work with. Select a system to see related projects."><path class="ln" stroke-dasharray="3 6" d="M120 92 Q300 20 480 86"/><path class="ln" stroke-dasharray="3 6" d="M170 400 Q300 470 420 405"/><path class="flow" d="M120 92 Q300 20 480 86" style="animation-duration:4s"/><path class="ln" d="M300 230 L120 92"/><path class="flow" d="M300 230 L120 92" style="animation-delay:-0.00s"/><path class="ln" d="M300 230 L480 86"/><path class="flow" d="M300 230 L480 86" style="animation-delay:-0.35s"/><path class="ln" d="M300 230 L520 270"/><path class="flow" d="M300 230 L520 270" style="animation-delay:-0.70s"/><path class="ln" d="M300 230 L420 405"/><path class="flow" d="M300 230 L420 405" style="animation-delay:-1.05s"/><path class="ln" d="M300 230 L170 400"/><path class="flow" d="M300 230 L170 400" style="animation-delay:-1.40s"/><path class="ln" d="M300 230 L68 250"/><path class="flow" d="M300 230 L68 250" style="animation-delay:-1.75s"/><g data-node="servicenow|cmdb|catalog|scripted rest|flow designer" data-label="ServiceNow"><circle class="halo" cx="120" cy="92" r="44" style="--r0:44px;--r1:66px"/><circle class="core" cx="120" cy="92" r="44"/><text x="120" y="97">ServiceNow</text></g><g data-node="exchange|mail|mailbox" data-label="Exchange"><circle class="halo" cx="480" cy="86" r="44" style="--r0:44px;--r1:66px"/><circle class="core" cx="480" cy="86" r="44"/><text x="480" y="91">Exchange</text></g><g data-node="onedrive|sharepoint" data-label="OneDrive & SharePoint"><circle class="halo" cx="520" cy="270" r="44" style="--r0:44px;--r1:66px"/><circle class="core" cx="520" cy="270" r="44"/><text x="520" y="268">OneDrive</text><text x="520" y="282">SharePoint</text></g><g data-node="intune|bitlocker" data-label="Intune"><circle class="halo" cx="420" cy="405" r="40" style="--r0:40px;--r1:62px"/><circle class="core" cx="420" cy="405" r="40"/><text x="420" y="410">Intune</text></g><g data-node="powershell|graph|power automate|api|graphql" data-label="PowerShell & Graph"><circle class="halo" cx="170" cy="400" r="44" style="--r0:44px;--r1:66px"/><circle class="core" cx="170" cy="400" r="44"/><text x="170" y="398">PowerShell</text><text x="170" y="412">& Graph</text></g><g data-node="crowdstrike|conditional access|pim|grafana|zabbix|security" data-label="Security"><circle class="halo" cx="68" cy="250" r="40" style="--r0:40px;--r1:62px"/><circle class="core" cx="68" cy="250" r="40"/><text x="68" y="255">Security</text></g><g data-node="entra|conditional access|pim|identity|active directory" data-label="Entra ID" class=hub><circle class="pulse" cx="300" cy="230" r="54"/><circle class="halo" cx="300" cy="230" r="54" style="--r0:54px;--r1:76px"/><circle class="core" cx="300" cy="230" r="54"/><text x="300" y="235">Entra ID</text></g></svg><div id="node-info" aria-live="polite"></div></div>
+</section>
+<section class="wrap stats-wrap" aria-label="Highlights"><div id="stats" class="stats"></div></section>
+<section id="work" class="wrap section">
+<div class="section-head"><p class="eyebrow">01 / Selected work</p><h2>Connected systems.<br><em>Measured results.</em></h2><p class="lede">Real operational problems across ServiceNow, identity, and Microsoft 365. Four headline cases first, then the full record.</p></div>
+<div id="featured" class="featured-grid"></div>
+<div class="toolbar"><div id="filters" class="filters" role="group" aria-label="Filter projects"></div><label><span class="sr-only">Search projects</span><input id="search" class="search" type="search" placeholder="Search projects"></label></div>
+<p id="count" class="sr-only" role="status" aria-live="polite"></p>
+<div id="projects" class="plist"></div>
+<p id="empty" hidden>No projects match. Try another keyword or category.</p>
+<button id="show-all" class="show-all" type="button" hidden>Show all projects</button>
+<p class="fine">Project overviews omit employer identifiers and sensitive configurations. Figures are approximate. Pilots and in-progress work are labeled as such.</p>
+</section>
+<section id="expertise" class="section band"><div class="wrap">
+<div class="section-head"><p class="eyebrow">02 / How I work</p><h2>The connection between<br><em>platforms and people.</em></h2><p class="lede band-lede">Four areas I work across every week, and the tools I use in each.</p></div>
+<div id="expertise-list" class="xp-list"></div></div></section>
+<section id="credentials" class="wrap section">
+<div class="section-head"><p class="eyebrow">03 / Credentials</p><h2>Knowledge backed<br><em>by credentials.</em></h2><p class="lede">ServiceNow certifications with public verification on Credly.</p></div>
+<div id="cert-list" class="cert-list"></div></section>
+<section id="experience" class="wrap section exp">
+<div class="exp-side"><p class="eyebrow">04 / Experience</p><h2>Grounded in<br><em>real operations.</em></h2><p class="lede">9+ years across regulated healthcare IT, automotive dealership operations, and enterprise telecommunications support.</p>
+<div class="edu"><p class="eyebrow">Education</p><p>University of East London<br>BSc Information Security Systems · 2011–2015</p></div></div>
+<div id="jobs" class="jobs"></div></section>
+<section id="contact" class="section contact"><div class="wrap">
+<p class="eyebrow">05 / Contact</p><h2>Let’s connect <em>your next system.</em></h2>
+<p class="lede">Let’s talk about ServiceNow, Microsoft 365, hybrid identity, or an operational problem that needs a practical fix.</p>
+<div class="contact-links"><a class="email" href="mailto:qkazmi@qalbekazmi.com">qkazmi@qalbekazmi.com ↗</a><a href="https://www.linkedin.com/in/qalbekazmi/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn ↗</a></div>
+</div></section>
+</main>
+<footer class="wrap foot"><span>© 2026 Qalbe Kazmi · ServiceNow & Microsoft 365</span><a href="#top">Back to top ↑</a></footer>
+<nav class="switcher" aria-label="Design previews"><span>Preview</span><a href="../a/"><b>A</b><span class="sw-l"> · Command</span></a><a href="../b/" aria-current=page><b>B</b><span class="sw-l"> · Systems</span></a><a href="../c/"><b>C</b><span class="sw-l"> · Evolved</span></a><a href="../">Current</a></nav>
+<script src="../shared/data.js"></script><script src="../shared/site.js"></script>
+</body></html>
