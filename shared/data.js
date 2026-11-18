@@ -16,8 +16,8 @@ window.SITE={
    "label": "E3 licenses reclaimed"
   },
   {
-   "value": "20",
-   "count": 20,
+   "value": "23",
+   "count": 23,
    "label": "Projects documented"
   }
  ],
@@ -64,6 +64,8 @@ window.SITE={
     "Rolled out OneDrive Known Folder Move from an IT pilot to every affiliate through Group Policy.",
     "Reclaimed about 400 to 500 E3 licenses by converting departed users’ mailboxes to shared mailboxes.",
     "Replaced permanent Conditional Access exclusions with time-limited Entra PIM group membership.",
+    "Led recovery after a Microsoft EWS enforcement change caused about 57,000 Exchange Online backup failures, restoring backups the same evening.",
+    "Built a JEA endpoint running as a gMSA so ADManager Plus provisions hybrid remote mailboxes without the Exchange 2019 server.",
     "Built staged onboarding and offboarding in ADManager Plus across AD, Entra ID, Exchange, OneDrive, and Rubrik.",
     "Integrated Entra ID with ServiceNow for user provisioning and SSO."
    ]
@@ -75,6 +77,7 @@ window.SITE={
    "summary": "ServiceNow platform owner and Microsoft systems administrator for dealership operations.",
    "bullets": [
     "Set up the Microsoft tenant and connected Entra ID SSO to ServiceNow ITSM, Salesforce CRM, and vAuto.",
+    "Migrated every departmental file share, about 20 TB across five departments, to SharePoint Online with Entra ID group-based access, then decommissioned the on-premises shares.",
     "Designed Service Catalog items, Flow Designer workflows, approvals, SLAs, notifications, and escalations.",
     "Administered Incident, Request, Knowledge, and CMDB, including CMDB cleanup, Import Sets, and Transform Maps.",
     "Built reports and dashboards, managed update sets and upgrades, and ran UAT in Agile sprint cycles."
@@ -141,7 +144,7 @@ window.SITE={
    "summary": "Rolled out automatic Desktop, Documents, and Pictures backup to every affiliate.",
    "challenge": "User files lived on local machines and legacy redirected folders, with no consistent cloud backup across affiliates.",
    "approach": "Built a OneDrive Group Policy and piloted it on the IT and test OUs after a three-day notice period, checking both user and computer policy application. Users confirmed backup status with screenshots, and the pilot showed no sync errors or missed policies. Excluded service accounts through GPO security filtering, then linked a production GPO to user and computer OUs across all affiliates in August 2026 and verified it with gpresult and affiliate sampling.",
-   "outcome": "Desktop, Documents, and Pictures back up automatically with Files On-Demand, silent sign-in, and no option for users to turn it off."
+   "outcome": "Desktop, Documents, and Pictures back up automatically for about 3,200 users, with Files On-Demand, silent sign-in, and no option for users to turn it off. No tickets were raised from the rollout."
   },
   {
    "title": "Shared mailbox conversion and E3 license recovery",
@@ -159,6 +162,58 @@ window.SITE={
    "challenge": "Many departed or inactive accounts still held Microsoft 365 E3 licenses, but their mailboxes had to be kept for retention and business access.",
    "approach": "Reviewed accounts inactive for about three months, checked AD status and mailbox type, and converted eligible mailboxes to shared before releasing licenses. Personally ran a batch of 243 conversions in September 2026 and validated recipient state, including RemoteSharedMailbox objects in hybrid Exchange. Audited about 412 never-signed-in accounts across AD, Entra, Exchange, and Microsoft 365 activity before any action was taken.",
    "outcome": "About 400 to 500 E3 licenses reclaimed and 529 mailbox conversions across the program, with mailbox data kept for retention."
+  },
+  {
+   "title": "Moving a dealership's file shares to SharePoint",
+   "category": "Microsoft 365",
+   "tags": [
+    "SharePoint Online",
+    "SPMT",
+    "Entra ID",
+    "OneDrive",
+    "Teams"
+   ],
+   "metric": "~20 TB",
+   "metricLabel": "5 departments migrated",
+   "featured": false,
+   "summary": "Moved every departmental share into SharePoint Online and retired the on-premises file server.",
+   "challenge": "About 200 staff across Sales, Finance, Management, Motor Vehicle, and Service worked from mapped drives on a single on-premises server. Permissions had been granted user by user for years, folders holding customer licence copies and lender paperwork were broadly open, and there was no version history or audit trail.",
+   "approach": "Inventoried every share, its owners, and its permissions, then sized the data at about 20 TB. That exceeded the tenant's included storage, so additional Microsoft 365 file storage was approved before migrating. Designed one SharePoint site per department with restricted libraries for DMV, Finance, and Management content, with all access granted through Entra ID security groups. Department owners signed off on what moved or was archived, then each department migrated in its own wave with the SharePoint Migration Tool, delta passes, after-hours cutovers, and file-count and permission checks with real users. Ran several rounds of training for every department.",
+   "outcome": "All departmental data now lives in SharePoint with group-based access, auditing, and version history. Each legacy share was set to read-only, monitored, and then decommissioned, removing the single file server from daily operations."
+  },
+  {
+   "title": "Restoring Exchange Online backups after an EWS change",
+   "category": "Microsoft 365",
+   "tags": [
+    "Rubrik",
+    "Exchange Online",
+    "PowerShell",
+    "Vendor advisories"
+   ],
+   "metric": "~57,000",
+   "metricLabel": "backup failures traced",
+   "featured": false,
+   "summary": "Traced a weekend spike in mailbox backup failures to a Microsoft EWS enforcement change and restored processing.",
+   "challenge": "Over a weekend, about 57,000 Exchange-related Rubrik backup failures appeared, with HTTP 403 and hierarchy-ingest errors, so new mailbox backups were failing.",
+   "approach": "Led the response. Used the vendor advisory to rule out a change on the backup side, confirmed Exchange Web Services was disabled at the Exchange Online organization level, and re-enabled it with PowerShell. Monitored propagation through the expected CAS routing errors, kept stakeholders updated at each stage, and applied the same fix proactively to a second tenant.",
+   "outcome": "Successful backups resumed the same evening, and existing backup data was confirmed intact."
+  },
+  {
+   "title": "Hybrid mailbox provisioning without Exchange 2019",
+   "category": "Automation",
+   "tags": [
+    "ADManager Plus",
+    "PowerShell JEA",
+    "gMSA",
+    "Exchange Management Tools"
+   ],
+   "metric": "1 run",
+   "metricLabel": "account + remote mailbox",
+   "featured": false,
+   "summary": "Let onboarding create hybrid remote mailboxes without depending on the Exchange server being retired.",
+   "challenge": "New-hire onboarding in ADManager Plus still depended on the Exchange 2019 server. Moving it to the Exchange Management Tools failed because the service account's remote PowerShell session could not reach Active Directory, the Kerberos second-hop problem.",
+   "approach": "Built a locked-down PowerShell JEA endpoint that runs as a group managed service account and exposes a single function. The function validates the logon name, OU, and accepted email domain, is safe to rerun, enables the remote mailbox, and adds the cloud routing alias the old template created. Isolated a permissions error with -WhatIf tests and fixed it with Microsoft's supported permission script rather than hand-built ACLs. No stored passwords, Kerberos delegation, or CredSSP.",
+   "outcome": "Verified end to end in November 2026 with test users on four email domains, matching the old template's addresses on-premises and in Exchange Online. Moving production onboarding to the new template is the next step, with the previous template kept as rollback."
   },
   {
    "title": "Investigating a OneDrive mass deletion",
