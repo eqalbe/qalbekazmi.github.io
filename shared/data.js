@@ -16,8 +16,8 @@ window.SITE={
    "label": "E3 licenses reclaimed"
   },
   {
-   "value": "23",
-   "count": 23,
+   "value": "28",
+   "count": 28,
    "label": "Projects documented"
   }
  ],
@@ -28,11 +28,11 @@ window.SITE={
   ],
   [
    "Microsoft 365 collaboration",
-   "Exchange Online and hybrid Exchange, remote mailbox routing, shared mailboxes and delegation, mail flow and SMTP relay. OneDrive Known Folder Move, SharePoint permissions and ownership, Teams, Purview Content Search and eDiscovery, licensing."
+   "Exchange Online and hybrid Exchange, remote mailbox routing, shared mailboxes and delegation, mail flow and SMTP relay. OneDrive Known Folder Move, SharePoint migration, permissions and ownership, Teams, Copilot readiness, Purview DLP, sensitivity labels, Content Search and eDiscovery, licensing."
   ],
   [
    "Identity & security",
-   "Active Directory, Entra ID, Entra Connect and Cloud Sync, SSO and SAML, MFA, Conditional Access, Privileged Identity Management, RBAC and least privilege. Intune, BitLocker escrow, Windows LAPS, CrowdStrike Falcon, Check Point Harmony, and Defender."
+   "Active Directory, Entra ID, Entra Connect and Cloud Sync, SSO and SAML, MFA, Conditional Access, Privileged Identity Management, RBAC and least privilege. Intune, Windows Autopilot, Apple Business Manager, BitLocker, Windows Hello, CrowdStrike Falcon, Check Point Harmony, and Defender."
   ],
   [
    "Automation & infrastructure",
@@ -61,13 +61,16 @@ window.SITE={
    "summary": "Microsoft 365, hybrid identity, and ServiceNow for about 3,500 active users and 15,000 directory objects.",
    "bullets": [
     "Led recovery after a sync scope change soft-deleted about 10,628 Entra ID objects, restoring directory links and shared mailbox access.",
-    "Rolled out OneDrive Known Folder Move from an IT pilot to every affiliate through Group Policy.",
+    "Introduced ManageEngine ADManager Plus and built onboarding, offboarding, and rehire workflows end to end, automating about 90% of user creation.",
+    "Rolled out OneDrive Known Folder Move to about 3,200 users across every affiliate through Group Policy, with no tickets raised.",
     "Reclaimed about 400 to 500 E3 licenses by converting departed users’ mailboxes to shared mailboxes.",
+    "Moved VPN sign-in from Okta to Entra ID SAML with enforced MFA, leaving Entra ID as the single identity provider.",
     "Replaced permanent Conditional Access exclusions with time-limited Entra PIM group membership.",
     "Led recovery after a Microsoft EWS enforcement change caused about 57,000 Exchange Online backup failures, restoring backups the same evening.",
-    "Built a JEA endpoint running as a gMSA so ADManager Plus provisions hybrid remote mailboxes without the Exchange 2019 server.",
-    "Built staged onboarding and offboarding in ADManager Plus across AD, Entra ID, Exchange, OneDrive, and Rubrik.",
-    "Integrated Entra ID with ServiceNow for user provisioning and SSO."
+    "Built a JEA endpoint running as a gMSA so remote mailbox provisioning no longer depends on the Exchange 2019 server.",
+    "Enforced Copilot DLP and tightened SharePoint sharing ahead of a controlled Copilot rollout.",
+    "Building out ServiceNow to replace InvGate, with Entra ID SAML SSO and ITSM configuration in development.",
+    "Report platform status and service health to leadership three times a week."
    ]
   },
   {
@@ -111,7 +114,7 @@ window.SITE={
    "summary": "Led recovery after a sync scope change soft-deleted about 10,628 Entra ID objects.",
    "challenge": "A change to Entra Connect OU filtering removed the Disabled Users OU from sync scope. Connect staged deletions for every object in it, and about 10,628 Entra ID objects were soft-deleted. Those disabled accounts anchor converted shared mailboxes, so shared mailbox access was at risk.",
    "approach": "Led the recovery. Added the Disabled Users OU back into the Entra Connect sync scope, restored the soft-deleted cloud objects, and ran a sync cycle to re-link each on-premises account to its Entra ID object. Then checked that authorized delegates could still open the affected shared mailboxes.",
-   "outcome": "Directory links and shared mailbox access were restored. Sync scope changes are now treated as change-controlled, with the export deletion threshold enabled at 500 and pending deletes previewed before export."
+   "outcome": "Directory links and shared mailbox access were restored. Sync scope changes are now treated as change-controlled, and the export deletion threshold is enabled at 500."
   },
   {
    "title": "Time-limited Conditional Access exceptions with PIM",
@@ -129,6 +132,23 @@ window.SITE={
    "challenge": "A production Conditional Access policy blocks sign-ins from restricted locations for all users. Travel exceptions were handled by excluding individual users directly, and those exclusions stayed in place until someone remembered to remove them.",
    "approach": "Created a dedicated security group excluded from the geo-block policy and managed its membership through Entra PIM for Groups, so each exception is an active assignment with a fixed end date. Moved an existing direct exclusion into the group while preserving the other exclusions, and wrote a read-only Microsoft Graph PowerShell check that confirms the policy is enabled, the direct exclusion is gone, the group is excluded, and the user is a current member.",
    "outcome": "A reusable process for temporary access that removes itself on schedule, keeps the production policy intact, and can be verified from the command line instead of portal screenshots."
+  },
+  {
+   "title": "Moving VPN sign-in from Okta to Entra ID",
+   "category": "Identity & Security",
+   "tags": [
+    "Entra ID",
+    "SAML",
+    "Palo Alto GlobalProtect",
+    "Conditional Access"
+   ],
+   "metric": "1 IdP",
+   "metricLabel": "Okta retired",
+   "featured": false,
+   "summary": "Moved GlobalProtect VPN authentication to Entra ID SAML, leaving Entra ID as the organization's single identity provider.",
+   "challenge": "VPN sign-in still ran through Okta while everything else used Entra ID, so VPN access sat outside Conditional Access and the organization maintained two identity providers.",
+   "approach": "Documented the existing Okta SAML profiles, portal, gateways, and authentication settings. Created a GlobalProtect enterprise app in Entra ID with access through an AD-synced security group, then imported the Entra federation metadata and signing certificate into Palo Alto as a new SAML identity provider. Piloted with test users and laptops in a test OU, checked MFA, Conditional Access, and identity mapping, then cut over both portal and gateway authentication. Added a Conditional Access policy requiring MFA for the VPN app, evaluated in report-only before enforcing it.",
+   "outcome": "VPN sign-in now runs through Entra ID with MFA enforced, and the Okta integration was removed once the change was stable. Firewall traffic logs show users arriving by UPN and matching the intended group-based rules."
   },
   {
    "title": "OneDrive Known Folder Move, pilot to production",
@@ -162,6 +182,23 @@ window.SITE={
    "challenge": "Many departed or inactive accounts still held Microsoft 365 E3 licenses, but their mailboxes had to be kept for retention and business access.",
    "approach": "Reviewed accounts inactive for about three months, checked AD status and mailbox type, and converted eligible mailboxes to shared before releasing licenses. Personally ran a batch of 243 conversions in September 2026 and validated recipient state, including RemoteSharedMailbox objects in hybrid Exchange. Audited about 412 never-signed-in accounts across AD, Entra, Exchange, and Microsoft 365 activity before any action was taken.",
    "outcome": "About 400 to 500 E3 licenses reclaimed and 529 mailbox conversions across the program, with mailbox data kept for retention."
+  },
+  {
+   "title": "Copilot readiness and oversharing controls",
+   "category": "Microsoft 365",
+   "tags": [
+    "Microsoft 365 Copilot",
+    "Purview DLP",
+    "SharePoint Online",
+    "Sensitivity labels"
+   ],
+   "metric": "DLP enforced",
+   "metricLabel": "Copilot interactions",
+   "featured": false,
+   "summary": "Tightened SharePoint sharing and data protection before widening Copilot access.",
+   "challenge": "Copilot can surface anything a user can already reach. The baseline showed sharing links defaulting to everyone in the organization, guests able to reshare, and only part of SharePoint content protected.",
+   "approach": "Changed the default sharing link to specific people, made sensitive sites internal-only, and cleaned up broad permissions and links. Applied Restricted Content Discovery, a four-tier sensitivity label model, and a Copilot DLP policy run in simulation before enforcement. Aligned Teams transcript settings with Copilot and moved Copilot licensing to group-based assignment.",
+   "outcome": "The Copilot DLP policy is enforced for all users. About 630 people use Copilot Chat, and licensed Copilot is in a deliberately controlled rollout that will grow once governance is in place."
   },
   {
    "title": "Moving a dealership's file shares to SharePoint",
@@ -207,13 +244,13 @@ window.SITE={
     "gMSA",
     "Exchange Management Tools"
    ],
-   "metric": "1 run",
-   "metricLabel": "account + remote mailbox",
+   "metric": "Live",
+   "metricLabel": "no Exchange 2019 dependency",
    "featured": false,
    "summary": "Let onboarding create hybrid remote mailboxes without depending on the Exchange server being retired.",
    "challenge": "New-hire onboarding in ADManager Plus still depended on the Exchange 2019 server. Moving it to the Exchange Management Tools failed because the service account's remote PowerShell session could not reach Active Directory, the Kerberos second-hop problem.",
    "approach": "Built a locked-down PowerShell JEA endpoint that runs as a group managed service account and exposes a single function. The function validates the logon name, OU, and accepted email domain, is safe to rerun, enables the remote mailbox, and adds the cloud routing alias the old template created. Isolated a permissions error with -WhatIf tests and fixed it with Microsoft's supported permission script rather than hand-built ACLs. No stored passwords, Kerberos delegation, or CredSSP.",
-   "outcome": "Verified end to end in November 2026 with test users on four email domains, matching the old template's addresses on-premises and in Exchange Online. Moving production onboarding to the new template is the next step, with the previous template kept as rollback."
+   "outcome": "Verified with test users on four email domains, matching the old template's addresses on-premises and in Exchange Online. Remote mailbox provisioning now runs through the new path, so onboarding no longer depends on the Exchange 2019 server. Retiring that server is the next step, with the previous template kept as rollback."
   },
   {
    "title": "Investigating a OneDrive mass deletion",
@@ -244,10 +281,27 @@ window.SITE={
    "metric": "3 stages",
    "metricLabel": "timed, data first",
    "featured": false,
-   "summary": "Offboarding that preserves data first and removes access in timed stages.",
-   "challenge": "Offboarding touched AD, Entra ID, Exchange, OneDrive, home drives, and backup, and the steps were not always done in the right order.",
-   "approach": "Built successive ADManager Plus task groups: app access removal, OneDrive archiving, and home folder moves first; then hiding from the address list, blocking Microsoft 365 sign-in, and shared mailbox conversion at 10 minutes; then disabling the AD account, moving it to the Disabled OU, and removing memberships at 30 minutes. Added the shared mailbox conversion step myself. Piloted an on-demand Rubrik mailbox snapshot through its GraphQL API with a least-privilege service account and custom role. A test mailbox backed up in about 16 seconds.",
-   "outcome": "A repeatable, ordered offboarding process. The Rubrik snapshot step is a validated pilot that is not yet a production gate."
+   "summary": "Introduced ADManager Plus and built offboarding that preserves data first and removes access in timed stages.",
+   "challenge": "Nobody at the organization was using an identity lifecycle tool, and offboarding touched AD, Entra ID, Exchange, OneDrive, home drives, and backup by hand, so steps were not always done in the right order.",
+   "approach": "Introduced ManageEngine ADManager Plus, connected it to the existing AD domain and Microsoft 365 tenant, and built the whole offboarding workflow as successive task groups: app access removal, OneDrive archiving, and home folder moves first; then hiding from the address list, blocking Microsoft 365 sign-in, and converting the mailbox to shared at 10 minutes; then disabling the AD account, moving it to the Disabled OU, and removing memberships at 30 minutes. Also piloted an on-demand Rubrik mailbox snapshot through its GraphQL API with a least-privilege service account and custom role. A test mailbox backed up in about 16 seconds.",
+   "outcome": "A repeatable, ordered offboarding process on a platform the team did not have before. The Rubrik snapshot step is a validated pilot that is not yet a production gate."
+  },
+  {
+   "title": "Archiving departed users' OneDrive to SharePoint",
+   "category": "Automation",
+   "tags": [
+    "Microsoft Graph",
+    "PowerShell",
+    "SharePoint Online",
+    "ADManager Plus"
+   ],
+   "metric": "Cert-based",
+   "metricLabel": "Graph app-only access",
+   "featured": false,
+   "summary": "Added an automatic OneDrive archive step to the offboarding workflow, copying a departed user's files into a central SharePoint archive.",
+   "challenge": "Archiving a departed user's OneDrive was manual, per-user work, and business files could sit only in that user's OneDrive. Using a licensed archive account as the destination was not an option.",
+   "approach": "Wrote a PowerShell script that ADManager Plus runs during offboarding. It authenticates to Microsoft Graph with an app registration and certificate, since tenant policy blocks client secrets, and copies the user's OneDrive into a private archive site organized by year and user. Kept per-user logs. Fixed an early 401 error by sending copy requests through the authenticated Graph session instead of reusing a token, and documented a CSV retry gotcha in ADManager Plus.",
+   "outcome": "In production since May 2026 as part of every offboarding. A verified run copied 1.78 GB with all 47 root items at the destination. Next improvements I've identified include confirming copy-job completion and paging through large OneDrives before releasing licenses."
   },
   {
    "title": "Repeatable onboarding with routing rules",
@@ -258,13 +312,13 @@ window.SITE={
     "Exchange hybrid",
     "Entra ID"
    ],
-   "metric": "Days → hours",
-   "metricLabel": "onboarding time",
+   "metric": "~90%",
+   "metricLabel": "of user creation automated",
    "featured": false,
-   "summary": "Standardized account creation across affiliates, from AD through licensing.",
+   "summary": "Standardized account creation across 15+ affiliate domains, from AD through licensing, plus a separate rehire workflow.",
    "challenge": "Each affiliate had its own naming, OU, and email domain rules, so new accounts were built inconsistently and often by hand.",
-   "approach": "Built an Official Onboarding template with affiliate-specific UPN, OU, and group rules, remote routing addresses for hybrid Exchange, and group-based E3 licensing. Added rehire matching in a later version, plus a scheduled automation that moves accounts from the New Users OU into the correct affiliate OU by email domain.",
-   "outcome": "A consistent sequence of AD, Entra ID, licensing, and Intune, with onboarding time reduced from days to hours."
+   "approach": "Built the Official Onboarding template in ADManager Plus from the HR onboarding form: naming rules that resolve duplicates, a UPN that matches the logon name on-premises and in the cloud, affiliate-specific OU and group rules, remote routing addresses so mail works on first sync, and group-based E3 licensing. A duplicate display name stops creation on purpose for a manual rehire check. Iterated the template through several versions, including unique generated passwords for every new user and remote mailboxes instead of on-premises ones. Built a separate rehire workflow that re-enables the account, restores the mailbox, licensing, and files, and unhides the user from the address list. Added a scheduled automation that moves accounts from the New Users OU into the correct affiliate OU by email domain.",
+   "outcome": "About 90% of user creation is automated by my estimate, with manual checkpoints where IT and HR must validate. The remaining step is the HR data feed, which depends on a future HR system integration."
   },
   {
    "title": "Fixing hybrid mail routing at scale",
@@ -350,22 +404,40 @@ window.SITE={
    "outcome": "Monitoring dashboards secured with company sign-in and covering core infrastructure."
   },
   {
-   "title": "Connecting identity to ServiceNow",
+   "title": "Help desk info on every Windows desktop",
+   "category": "Infrastructure",
+   "tags": [
+    "Group Policy",
+    "BGInfo",
+    "PowerShell",
+    "Atera"
+   ],
+   "metric": "0 tickets",
+   "metricLabel": "company-wide rollout",
+   "featured": false,
+   "summary": "Put computer name, IP address, and help desk contact details on every Windows desktop through a company-wide Group Policy.",
+   "challenge": "Users calling the help desk often couldn't say which computer they were on, and the support number and password reset link weren't easy to find.",
+   "approach": "Built a production GPO that copies BGInfo and its configuration from SYSVOL and runs it at logon, with files set to refresh from SYSVOL so endpoints never keep stale copies. Replaced the built-in IP field with a custom primary IP lookup after VPN and virtual adapters returned several addresses in laptop testing. Simplified the design during the pilot to a desktop overlay on the user's own wallpaper, dropping a lock screen version that wouldn't work on about 900 Windows Pro machines. Rolled out on a Sunday evening and used Atera scripts to push the policy and start the overlay for signed-in users without a restart.",
+   "outcome": "Running company-wide with no tickets or issues raised. Every desktop shows hostname, primary IP, OS version, the help desk number, and password reset details."
+  },
+  {
+   "title": "Building out ServiceNow to replace InvGate",
    "category": "ServiceNow",
    "tags": [
     "ServiceNow",
     "Entra ID",
+    "SAML",
     "Import Sets",
     "Transform Maps",
-    "SSO"
+    "ITSM"
    ],
-   "metric": "Entra → SN",
-   "metricLabel": "user sync + SSO",
+   "metric": "SAML SSO",
+   "metricLabel": "Entra ID, development instance",
    "featured": false,
-   "summary": "Brought Entra ID user data into ServiceNow with SSO.",
-   "challenge": "User records in ServiceNow needed to match enterprise identity without manual entry.",
-   "approach": "Imported Entra ID users into an Import Set and transformed them into sys_user, with updates applied at login. Configured SSO so platform access follows enterprise authentication. In a dealership group, set up the Microsoft tenant and connected Entra ID SSO to ServiceNow ITSM, Salesforce CRM, and vAuto.",
-   "outcome": "Consistent user records and a single sign-in experience across ServiceNow and business applications."
+   "summary": "Building ServiceNow as the organization's next service management platform, starting with identity and ITSM. In progress.",
+   "challenge": "The organization runs service management on InvGate and wants to move to ServiceNow, with user records and sign-in tied to Entra ID rather than maintained by hand.",
+   "approach": "In the development instance, set up SAML SSO with Entra ID and attribute mapping, and user provisioning that imports Entra ID users into an Import Set and transforms them into sys_user, with updates applied at login. Configuring ITSM for Incident, Change, Request, and Problem, including priorities, assignment rules and groups, business rules, client scripts, and catalog items. In a previous role at a dealership group, set up the Microsoft tenant and connected Entra ID SSO to ServiceNow ITSM, Salesforce CRM, and vAuto.",
+   "outcome": "Identity and core ITSM configuration are being built out in development. Moving the new-hire form into ServiceNow and connecting it to ADManager Plus are planned next steps."
   },
   {
    "title": "ServiceNow catalog, workflow, and SLA design",
@@ -486,6 +558,23 @@ window.SITE={
    "challenge": "Moving off Entra Connect needed real evidence about Cloud Sync behavior and timing.",
    "approach": "Installed the provisioning agent, scoped it to test OUs kept separate from Connect, and measured attribute propagation at about 13 to 15 minutes. Tested enable and disable behavior and account linking, and confirmed a new pilot device was both Entra joined and domain joined.",
    "outcome": "Documented findings and cautions, including the unresolved handoff for existing hybrid devices, to guide the migration decision."
+  },
+  {
+   "title": "Cloud-native device enrollment with Intune",
+   "category": "Identity & Security",
+   "tags": [
+    "Intune",
+    "Windows Autopilot",
+    "Apple Business Manager",
+    "Entra ID"
+   ],
+   "metric": "1 group",
+   "metricLabel": "Autopilot targeting by tag",
+   "featured": false,
+   "summary": "Configuring Intune for cloud-native Windows and corporate iPhone and iPad enrollment.",
+   "challenge": "New Windows devices and corporate phones needed consistent enrollment, security settings, and remote support without separate setups for each affiliate.",
+   "approach": "Configured Windows Autopilot with user-driven Entra join, using one dynamic device group fed by affiliate group tags so new affiliates are added by tag instead of by new policy sets. Set up Apple Business Manager and Automated Device Enrollment for corporate iPhones and iPads with apps and books, Remote Help including unattended sessions, Company Portal, BitLocker targeting, Windows Hello PIN, and scoped Intune RBAC roles. A security baseline, Windows LAPS, and a VPN certificate profile are in pilot.",
+   "outcome": "Autopilot, Apple enrollment, Remote Help, and BitLocker are in production, with each change verified on the device side rather than assumed from the portal."
   }
  ]
 };
