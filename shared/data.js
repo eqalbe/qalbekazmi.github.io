@@ -47,8 +47,8 @@ window.SITE={
    "url": "https://www.credly.com/badges/29ebd944-6505-4ada-a078-04feebbdc6ec/public_url"
   },
   {
-   "name": "Certified Implementation Specialist — Data Foundations",
-   "abbr": "CMDB and CSDM",
+   "name": "CSDM Certification",
+   "abbr": "Common Service Data Model",
    "img": "assets/servicenow-data-foundations.png",
    "url": "https://www.credly.com/badges/7add255d-192f-43ce-9f97-c411e505c777/public_url"
   }
